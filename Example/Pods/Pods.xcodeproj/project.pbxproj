@@ -42,14 +42,14 @@
 		07B9757C364770A83E97F561B93F0998 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FD746B77BA57B01CBE5648A46ED317B /* Pods-WikiSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WikiSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		136C1CAC11C784E00A0EEB5797C7D999 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AE240CF0A42446CF7C1F0C6438A1B94 /* Pods_WikiSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WikiSDK_Example.framework; path = "Pods-WikiSDK_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E922433EB84EDD3CA9A137793F74B40 /* Pods_WikiSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WikiSDK_Tests.framework; path = "Pods-WikiSDK_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE240CF0A42446CF7C1F0C6438A1B94 /* Pods_WikiSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E922433EB84EDD3CA9A137793F74B40 /* Pods_WikiSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		209C971116C7212354068B4CF37F1250 /* Pods-WikiSDK_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WikiSDK_Example-resources.sh"; sourceTree = "<group>"; };
 		2146A0C0319B3E1555652B5314865CD5 /* Pods-WikiSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WikiSDK_Example-umbrella.h"; sourceTree = "<group>"; };
 		369DE8ED90D3CC79D100BD2DEEABFF0D /* Pods-WikiSDK_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WikiSDK_Tests-resources.sh"; sourceTree = "<group>"; };
 		4AEB7284F1DF0ED737C25BC84CDB5A4E /* WikiSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WikiSDK-umbrella.h"; sourceTree = "<group>"; };
 		4F7C269BF2D1C027CDCA9691BE2454AA /* WikiSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WikiSDK-prefix.pch"; sourceTree = "<group>"; };
-		56CA25B37AC257895FC35BD237FC8496 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		56CA25B37AC257895FC35BD237FC8496 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		58F7E40CBF51EBE4F7127E5DCBBBF10A /* Pods-WikiSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WikiSDK_Example.modulemap"; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		63A3C8D9F64484A67245EAE63958576E /* Pods-WikiSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WikiSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,21 +57,21 @@
 		689872A92C013200D9F13C0A2D980E22 /* Pods-WikiSDK_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WikiSDK_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7C77AF9D57B36DEF3A4FBF2AF561843D /* WikiSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WikiSDK.xcconfig; sourceTree = "<group>"; };
 		8D13E66E54C01CCF1DB4A1A958C83AAE /* Pods-WikiSDK_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WikiSDK_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		8FBB83009FA7F77C0E4F7DFCDBD84760 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8FBB83009FA7F77C0E4F7DFCDBD84760 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9680E0DF5DED341C4CB0589082D9EC78 /* Pods-WikiSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WikiSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A473D97D78168A4A066CFC33AA661450 /* WikiSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WikiSDK-dummy.m"; sourceTree = "<group>"; };
 		A86D6BF8C16B4798F46FD8D0D1826A64 /* Pods-WikiSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WikiSDK_Example-dummy.m"; sourceTree = "<group>"; };
 		B4AFA70E2475887A22A3A6B3FA37D463 /* Pods-WikiSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WikiSDK_Tests.modulemap"; sourceTree = "<group>"; };
 		B7CD01D81935D2D4D77ED6646639BCC2 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = WikiSDK/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
-		BF6CBBA016F8DA31E45518E38245BEE7 /* WikiSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WikiSDK.framework; path = WikiSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6CBBA016F8DA31E45518E38245BEE7 /* WikiSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WikiSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73AF3E38D8236BABD2A1E89BB3C11D3 /* Pods-WikiSDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WikiSDK_Tests-dummy.m"; sourceTree = "<group>"; };
 		DA6590F9DCF89478C1FC8570ACB30533 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAA1F28C410154A6B3A985D81C6E507C /* Pods-WikiSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WikiSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EF4771DBD6FB69F729B82BF45F7122E7 /* Pods-WikiSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WikiSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F108537909CC066262D0DA39784BC3A0 /* Pods-WikiSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WikiSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
 		F9BBB5871F50C497CB6E90F18B9A1DBC /* Pods-WikiSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WikiSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
-		FDF2B0D01A8D18A0328BBB114D9124A0 /* WikiSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = WikiSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FDF2B0D01A8D18A0328BBB114D9124A0 /* WikiSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = WikiSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,7 +320,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1000;
+				TargetAttributes = {
+					392D9D044B55B5EA608EF4D0F4FA1770 = {
+						LastSwiftMigration = 1000;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -433,9 +438,8 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -533,6 +537,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -575,12 +580,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C77AF9D57B36DEF3A4FBF2AF561843D /* WikiSDK.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -596,7 +602,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -630,8 +636,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
