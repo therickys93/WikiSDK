@@ -1,0 +1,6 @@
+framework module WikiSDK {
+  umbrella header "WikiSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

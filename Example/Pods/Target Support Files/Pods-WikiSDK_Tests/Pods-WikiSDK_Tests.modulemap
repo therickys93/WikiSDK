@@ -1,0 +1,6 @@
+framework module Pods_WikiSDK_Tests {
+  umbrella header "Pods-WikiSDK_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

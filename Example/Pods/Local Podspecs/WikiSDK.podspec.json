@@ -1,0 +1,22 @@
+{
+  "name": "WikiSDK",
+  "version": "0.1.0",
+  "summary": "A short description of WikiSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/therickys93/WikiSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "therickys93": "therickys93@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/therickys93/WikiSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "WikiSDK/Classes/**/*"
+}

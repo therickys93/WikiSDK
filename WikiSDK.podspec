@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WikiSDK'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of WikiSDK.'
+  s.summary          = 'WikiSDK per il progetto Wiki.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,11 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Semplice API scritta in Swift per il progetto Wiki.
                        DESC
 
   s.homepage         = 'https://github.com/therickys93/WikiSDK'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'therickys93' => 'therickys93@gmail.com' }
   s.source           = { :git => 'https://github.com/therickys93/WikiSDK.git', :tag => s.version.to_s }
@@ -32,10 +31,6 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'WikiSDK/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'WikiSDK' => ['WikiSDK/Assets/*.png']
-  # }
-
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'

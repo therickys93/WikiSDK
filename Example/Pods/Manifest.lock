@@ -1,0 +1,16 @@
+PODS:
+  - WikiSDK (0.1.0)
+
+DEPENDENCIES:
+  - WikiSDK (from `../`)
+
+EXTERNAL SOURCES:
+  WikiSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WikiSDK: c8d9d1e342cf562574dd5d6abba596b5b62005fa
+
+PODFILE CHECKSUM: 4e07b2f0a1bc0ee39271633b002fb871ba43c026
+
+COCOAPODS: 1.5.3
