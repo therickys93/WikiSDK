@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		9CB8AB03216FB35600820E1B /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */; };
 		CE32382F16003A7CF8375CEC /* Pods_WikiSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF009EC8776C2960D9BA7DB9 /* Pods_WikiSDK_Tests.framework */; };
 		EFEB7F040E13A1D9FF298E49 /* Pods_WikiSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3E5DDB914CE681A5321D1F /* Pods_WikiSDK_Example.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		78CEA7AF28B45CE5F63DEA4E /* Pods-WikiSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikiSDK_Example/Pods-WikiSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		869789FD28B97AC1571761F2 /* Pods-WikiSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WikiSDK_Example/Pods-WikiSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8990329F81FDE3A6E4B48677 /* Pods-WikiSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikiSDK_Tests/Pods-WikiSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsTableViewController.swift; sourceTree = "<group>"; };
 		BE3E5DDB914CE681A5321D1F /* Pods_WikiSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFF21E899FD16F842A4A2AE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CF009EC8776C2960D9BA7DB9 /* Pods_WikiSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -334,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB8AB03216FB35600820E1B /* LightsTableViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

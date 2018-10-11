@@ -27,7 +27,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         updateStaticUI()
         self.lightPickerView.delegate = self
         self.lightPickerView.dataSource = self
-        self.pickerData = ["Nessun accessorio trovato"]
+        self.pickerData = AppDelegate.leds
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.pickerData.removeAll()
+        self.pickerData = AppDelegate.leds
+        self.lightPickerView.reloadAllComponents()
     }
 
     override func didReceiveMemoryWarning() {
