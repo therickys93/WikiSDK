@@ -14,7 +14,7 @@ class LightsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Configura Casa"
+        self.title = Wiki.Controllers.LightsController.TITLE
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +38,7 @@ class LightsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellReuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Wiki.Controllers.LightsController.CELL_REUSE_IDENTIFIER, for: indexPath)
 
         // Configure the cell...
         cell.textLabel?.text = AppDelegate.leds[indexPath.row]
@@ -50,7 +50,7 @@ class LightsTableViewController: UITableViewController {
         if editingStyle == .delete {
             AppDelegate.leds.remove(at: indexPath.row)
             self.leds = AppDelegate.leds
-            Utils.writeContent(AppDelegate.leds.joined(separator: "\n"), toFile: "pippo.txt")
+            Utils.writeContent(AppDelegate.leds.joined(separator: Wiki.Constants.FILE_SEPARATOR_STRING), toFile: Wiki.Constants.DBFILE)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -63,7 +63,7 @@ class LightsTableViewController: UITableViewController {
             if let name = alertController.textFields?[0].text {
                 AppDelegate.leds.append(name)
                 self.leds = AppDelegate.leds
-                Utils.writeContent(AppDelegate.leds.joined(separator: "\n"), toFile: "pippo.txt")
+                Utils.writeContent(AppDelegate.leds.joined(separator: Wiki.Constants.FILE_SEPARATOR_STRING), toFile: Wiki.Constants.DBFILE)
                 self.tableView.reloadData()
             }
         }

@@ -29,7 +29,7 @@ public class Utils {
     
     public static func readFile(file: String) -> [String] {
         let content = Utils.readContentOfFile(file: file)
-        return content.split(separator: "\n").map(String.init)
+        return content.split(separator: Wiki.Constants.FILE_SEPARATOR_CHAR).map(String.init)
     }
     
 }

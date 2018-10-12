@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var pickerData: [String] = [String]()
     
     private func updateStaticUI(){
-        self.title = "Wiki"
+        self.title = Wiki.Controllers.WikiController.TITLE
         self.versionLabel.text = "Versione applicazione: \(Bundle.main.releaseVersionNumber).\(Bundle.main.buildVersionNumber)"
     }
     
@@ -58,7 +58,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if self.pickerData.count > 0 {
             return self.pickerData[row]
         } else {
-            return "Nessun Accessorio trovato"
+            return Wiki.Constants.NO_LIGHTS_FOUND
         }
     }
 
