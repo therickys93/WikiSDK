@@ -47,11 +47,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.pickerData.count
+        if self.pickerData.count > 0 {
+            return self.pickerData.count
+        } else {
+            return 1
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.pickerData[row]
+        if self.pickerData.count > 0 {
+            return self.pickerData[row]
+        } else {
+            return "Nessun Accessorio trovato"
+        }
     }
 
 }

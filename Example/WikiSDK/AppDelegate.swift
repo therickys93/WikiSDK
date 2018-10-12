@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        AppDelegate.leds = ["Accessorio 1", "Accessorio 2", "Accessorio 3", "Accessorio 4"]
+        AppDelegate.leds = Utils.readFile(file: "pippo.txt")
         return true
     }
 
