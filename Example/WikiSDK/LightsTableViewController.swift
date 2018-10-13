@@ -55,6 +55,20 @@ class LightsTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func download(_ sender: UIBarButtonItem) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone download premuto")
+    }
+    
+    @IBAction func upload(_ sender: UIBarButtonItem) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone upload premuto")
+    }
+    
+    private func showAlertViewWithTitle(_ title: String, andMessage message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func addLight(_ sender: UIBarButtonItem) {
         
         let alertController = UIAlertController(title: "Nuovo Accessorio", message: "Inserisci nome nuovo accessorio", preferredStyle: .alert)

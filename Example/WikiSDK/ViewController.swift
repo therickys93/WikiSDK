@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     private func updateStaticUI(){
         self.title = Wiki.Controllers.WikiController.TITLE
+        self.wikiControllerServerTextField.text = Wiki.Controllers.WikiController.DEFAULT_URL
         self.versionLabel.text = "Versione applicazione: \(Bundle.main.releaseVersionNumber).\(Bundle.main.buildVersionNumber)"
     }
     
@@ -60,6 +61,37 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         } else {
             return Wiki.Constants.NO_LIGHTS_FOUND
         }
+    }
+    
+    @IBAction func switchOn(_ sender: UIButton) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone accendi premuto")
+    }
+    
+    @IBAction func switchOff(_ sender: UIButton) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone spegni premuto")
+    }
+    
+    @IBAction func open(_ sender: UIButton) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone apri premuto")
+    }
+    
+    @IBAction func close(_ sender: UIButton) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone chiudi premuto")
+    }
+    
+    @IBAction func status(_ sender: UIButton) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone stato premuto")
+    }
+    
+    @IBAction func reset(_ sender: UIButton) {
+        showAlertViewWithTitle("DA FARE", andMessage: "bottone reset premuto")
+    }
+    
+    
+    private func showAlertViewWithTitle(_ title: String, andMessage message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

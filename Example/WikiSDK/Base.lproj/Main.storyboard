@@ -54,10 +54,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bq0-JC-g6P">
                                                 <rect key="frame" x="0.0" y="0.0" width="149" height="30"/>
                                                 <state key="normal" title="ACCENDI"/>
+                                                <connections>
+                                                    <action selector="switchOn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qq3-ur-2rq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlg-12-Bpy">
                                                 <rect key="frame" x="190" y="0.0" width="149" height="30"/>
                                                 <state key="normal" title="SPEGNI"/>
+                                                <connections>
+                                                    <action selector="switchOff:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="C0N-ro-DZW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -72,10 +78,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GW-Hh-SKF">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
                                                 <state key="normal" title="APRI"/>
+                                                <connections>
+                                                    <action selector="open:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h83-p1-yQD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHL-JG-BCj">
                                                 <rect key="frame" x="189" y="0.0" width="150" height="30"/>
                                                 <state key="normal" title="CHIUDI"/>
+                                                <connections>
+                                                    <action selector="close:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BJd-0g-TxS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -90,10 +102,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3E-FG-uU8">
                                                 <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
                                                 <state key="normal" title="STATO"/>
+                                                <connections>
+                                                    <action selector="status:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5kf-TH-kxw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAX-Dy-Xys">
                                                 <rect key="frame" x="187" y="0.0" width="152" height="30"/>
                                                 <state key="normal" title="RESET"/>
+                                                <connections>
+                                                    <action selector="reset:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7P1-0z-kEV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -138,7 +156,7 @@
         <scene sceneID="3SO-3Y-rxH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hEf-5z-fCX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Wiki" id="GlF-Tj-D1J"/>
+                    <tabBarItem key="tabBarItem" title="Wiki" image="Wiki" landscapeImage="Wiki" largeContentSizeImage="Wiki" id="GlF-Tj-D1J"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jaa-xP-0LC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -205,6 +223,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="PI3-3s-JGT">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="Download" landscapeImage="Download" largeContentSizeImage="Download" id="mhd-hT-9fe">
+                                <connections>
+                                    <action selector="download:" destination="IXC-0L-RVf" id="wdm-Ap-5aK"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="Upload" landscapeImage="Upload" largeContentSizeImage="Upload" id="Dm8-xK-OTE">
+                                <connections>
+                                    <action selector="upload:" destination="IXC-0L-RVf" id="ACL-Oz-5nK"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hxd-0U-6T7">
                             <connections>
                                 <action selector="addLight:" destination="IXC-0L-RVf" id="sZR-Od-qvd"/>
@@ -220,7 +250,7 @@
         <scene sceneID="I0f-dh-5uP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tHI-d4-81A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configura Casa" id="8Ak-6s-EPW"/>
+                    <tabBarItem key="tabBarItem" title="Configura Casa" image="ConfigureHouse" landscapeImage="ConfigureHouse" largeContentSizeImage="ConfigureHouse" id="8Ak-6s-EPW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="stY-bL-eM3">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -236,4 +266,10 @@
             <point key="canvasLocation" x="921" y="761"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ConfigureHouse" width="30" height="30"/>
+        <image name="Download" width="30" height="30"/>
+        <image name="Upload" width="30" height="30"/>
+        <image name="Wiki" width="30" height="30"/>
+    </resources>
 </document>
