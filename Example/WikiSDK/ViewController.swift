@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var wikiControllerServerTextField: UITextField!
     @IBOutlet weak var versionLabel: UILabel!
@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     private func updateStaticUI(){
         self.title = Wiki.Controllers.WikiController.TITLE
-        self.wikiControllerServerTextField.text = Wiki.Controllers.WikiController.DEFAULT_URL
+        self.wikiControllerServerTextField.text = Utils.loadWikiControllerURL()
         self.versionLabel.text = "Versione applicazione: \(Bundle.main.releaseVersionNumber).\(Bundle.main.buildVersionNumber)"
     }
     
@@ -29,6 +29,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.lightPickerView.delegate = self
         self.lightPickerView.dataSource = self
         self.pickerData = AppDelegate.leds
+        self.wikiControllerServerTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let text = textField.text {
+            Utils.saveWikiControllerURL(text)
+        }
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {

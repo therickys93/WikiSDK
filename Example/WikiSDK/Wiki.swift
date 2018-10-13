@@ -20,6 +20,7 @@ struct Wiki {
         struct WikiController {
             static let TITLE       = "Wiki"
             static let DEFAULT_URL = "http://controller.wiki.home"
+            static let DEFAULT_KEY = "WIKICONTROLLER_URL"
         }
         struct LightsController {
             static let TITLE                 = "Configura Casa"
