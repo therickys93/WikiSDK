@@ -30,7 +30,7 @@ Semplice API scritta in Swift per il progetto Wiki.
   s.swift_version         = '4.2'
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'WikiSDK/Classes/**/**/*'
+  s.source_files = 'WikiSDK/Classes/**/*'
   
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

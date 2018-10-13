@@ -25,5 +25,4 @@ public class Home: Sendable {
         return self._method
     }
     
-    
 }

@@ -12,14 +12,14 @@
 		3EEC9696B0065886A984FB3BF505B7E9 /* Pods-WikiSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C73AF3E38D8236BABD2A1E89BB3C11D3 /* Pods-WikiSDK_Tests-dummy.m */; };
 		4B941C523507E6845EE444D9A5A344E4 /* WikiSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AEB7284F1DF0ED737C25BC84CDB5A4E /* WikiSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		600B0C593C3A25096C95DCF4C03FA847 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		9C322E9421722E44000F03B2 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9221722E43000F03B2 /* House.swift */; };
-		9C322E9521722E44000F03B2 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9221722E43000F03B2 /* House.swift */; };
-		9C322E9621722E44000F03B2 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9321722E43000F03B2 /* Led.swift */; };
-		9C322E9721722E44000F03B2 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9321722E43000F03B2 /* Led.swift */; };
-		9C322E9A21722E54000F03B2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9821722E53000F03B2 /* Home.swift */; };
-		9C322E9B21722E54000F03B2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9821722E53000F03B2 /* Home.swift */; };
-		9C322E9C21722E54000F03B2 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9921722E54000F03B2 /* Sendable.swift */; };
-		9C322E9D21722E54000F03B2 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C322E9921722E54000F03B2 /* Sendable.swift */; };
+		9CAB8F0221723E2D007FA769 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0021723E2D007FA769 /* Sendable.swift */; };
+		9CAB8F0321723E2D007FA769 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0021723E2D007FA769 /* Sendable.swift */; };
+		9CAB8F0421723E2D007FA769 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0121723E2D007FA769 /* Home.swift */; };
+		9CAB8F0521723E2D007FA769 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0121723E2D007FA769 /* Home.swift */; };
+		9CAB8F0821723E43007FA769 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0621723E43007FA769 /* Led.swift */; };
+		9CAB8F0921723E43007FA769 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0621723E43007FA769 /* Led.swift */; };
+		9CAB8F0A21723E43007FA769 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0721723E43007FA769 /* House.swift */; };
+		9CAB8F0B21723E43007FA769 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0721723E43007FA769 /* House.swift */; };
 		A11F3F3B702ADC1631C57C1267518F40 /* Pods-WikiSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2146A0C0319B3E1555652B5314865CD5 /* Pods-WikiSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB18A3166F99B8DF017D06EFF3E8F553 /* WikiSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A473D97D78168A4A066CFC33AA661450 /* WikiSDK-dummy.m */; };
 		C0EB535E54724156103819B964A3F32E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
@@ -67,10 +67,10 @@
 		8FBB83009FA7F77C0E4F7DFCDBD84760 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9680E0DF5DED341C4CB0589082D9EC78 /* Pods-WikiSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WikiSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9C322E9221722E43000F03B2 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
-		9C322E9321722E43000F03B2 /* Led.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Led.swift; sourceTree = "<group>"; };
-		9C322E9821722E53000F03B2 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		9C322E9921722E54000F03B2 /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sendable.swift; sourceTree = "<group>"; };
+		9CAB8F0021723E2D007FA769 /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sendable.swift; path = WikiSDK/Classes/controller/Sendable.swift; sourceTree = "<group>"; };
+		9CAB8F0121723E2D007FA769 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = WikiSDK/Classes/controller/Home.swift; sourceTree = "<group>"; };
+		9CAB8F0621723E43007FA769 /* Led.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Led.swift; path = ../WikiSDK/Classes/model/Led.swift; sourceTree = "<group>"; };
+		9CAB8F0721723E43007FA769 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = House.swift; path = ../WikiSDK/Classes/model/House.swift; sourceTree = "<group>"; };
 		A473D97D78168A4A066CFC33AA661450 /* WikiSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WikiSDK-dummy.m"; sourceTree = "<group>"; };
 		A86D6BF8C16B4798F46FD8D0D1826A64 /* Pods-WikiSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WikiSDK_Example-dummy.m"; sourceTree = "<group>"; };
 		B4AFA70E2475887A22A3A6B3FA37D463 /* Pods-WikiSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WikiSDK_Tests.modulemap"; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		99F6857AE99504230D7569A2F30A71BA /* WikiSDK */ = {
 			isa = PBXGroup;
 			children = (
-				9CAB8EF521723B93007FA769 /* Classes */,
+				9CAB8EFC21723DC1007FA769 /* Classes */,
 				2538FEB6E00D498D1BFF8DA8A49C1B14 /* Pod */,
 				CD56DA770DC6E132BD8A7F42A111E229 /* Support Files */,
 			);
@@ -170,31 +170,31 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		9CAB8EF521723B93007FA769 /* Classes */ = {
+		9CAB8EFC21723DC1007FA769 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9CAB8EF721723BA3007FA769 /* controller */,
-				9CAB8EF621723B9C007FA769 /* model */,
+				9CAB8EFF21723E00007FA769 /* model */,
+				9CAB8EFD21723DCC007FA769 /* controller */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		9CAB8EF621723B9C007FA769 /* model */ = {
+		9CAB8EFD21723DCC007FA769 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C322E9321722E43000F03B2 /* Led.swift */,
-				9C322E9221722E43000F03B2 /* House.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		9CAB8EF721723BA3007FA769 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				9C322E9921722E54000F03B2 /* Sendable.swift */,
-				9C322E9821722E53000F03B2 /* Home.swift */,
+				9CAB8F0121723E2D007FA769 /* Home.swift */,
+				9CAB8F0021723E2D007FA769 /* Sendable.swift */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		9CAB8EFF21723E00007FA769 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9CAB8F0721723E43007FA769 /* House.swift */,
+				9CAB8F0621723E43007FA769 /* Led.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A354F324489FB20A43A06D9F88778F6E /* Development Pods */ = {
@@ -415,11 +415,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C322E9621722E44000F03B2 /* Led.swift in Sources */,
-				9C322E9421722E44000F03B2 /* House.swift in Sources */,
-				9C322E9C21722E54000F03B2 /* Sendable.swift in Sources */,
-				9C322E9A21722E54000F03B2 /* Home.swift in Sources */,
 				C56F9F8ED0856A6E48416B2FEAC1421B /* Pods-WikiSDK_Example-dummy.m in Sources */,
+				9CAB8F0821723E43007FA769 /* Led.swift in Sources */,
+				9CAB8F0421723E2D007FA769 /* Home.swift in Sources */,
+				9CAB8F0A21723E43007FA769 /* House.swift in Sources */,
+				9CAB8F0221723E2D007FA769 /* Sendable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,11 +427,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C322E9721722E44000F03B2 /* Led.swift in Sources */,
-				9C322E9521722E44000F03B2 /* House.swift in Sources */,
-				9C322E9D21722E54000F03B2 /* Sendable.swift in Sources */,
-				9C322E9B21722E54000F03B2 /* Home.swift in Sources */,
 				AB18A3166F99B8DF017D06EFF3E8F553 /* WikiSDK-dummy.m in Sources */,
+				9CAB8F0921723E43007FA769 /* Led.swift in Sources */,
+				9CAB8F0521723E2D007FA769 /* Home.swift in Sources */,
+				9CAB8F0B21723E43007FA769 /* House.swift in Sources */,
+				9CAB8F0321723E2D007FA769 /* Sendable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
