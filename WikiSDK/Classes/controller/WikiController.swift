@@ -15,26 +15,22 @@ public class WikiController {
         self._server = server
     }
     
-    public func execute(sendable: Sendable) -> String? {
+    public func execute(sendable: Sendable, completionHandler handler: @escaping (String) -> Void){
         if sendable.method() == "GET" {
-            return makeGetRequest(sendable: sendable)
-        } else if sendable.method() == "POST" {
-            return "POST"
-        } else {
-            return nil
+            self.makeGetRequest(sendable: sendable) { (response) in
+                handler(response)
+            }
         }
     }
     
-    private func makeGetRequest(sendable: Sendable) -> String {
+    private func makeGetRequest(sendable: Sendable, completionHandler handler: @escaping (String) -> Void) {
         let url = URL(string: "\(self._server)\(sendable.endpoint())")!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
-            print(String(data: data, encoding: .utf8)!)
+            handler(String(data: data, encoding: .utf8)!)
         }
-        
         task.resume()
-        return ""
     }
     
 }

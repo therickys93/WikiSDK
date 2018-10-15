@@ -76,8 +76,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOn(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            if let response = wikicontroller.execute(sendable: On(key: "arduino", position: 1)) {
-                print(response)
+            wikicontroller.execute(sendable: On(key: "arduino", position: 1)) { (response) in
+                DispatchQueue.main.async {
+                    print(response)
+                }
             }
         }
     }
@@ -85,29 +87,54 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOff(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            if let response = wikicontroller.execute(sendable: Off(key: "arduino", position: 1)) {
-                print(response)
+            wikicontroller.execute(sendable: Off(key: "arduino", position: 1)) { (response) in
+                DispatchQueue.main.async {
+                    print(response)
+                }
             }
         }
     }
     
     @IBAction func open(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone apri premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { (response) in
+                DispatchQueue.main.async {
+                    print(response)
+                }
+            }
+        }
     }
     
     @IBAction func close(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone chiudi premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { (response) in
+                DispatchQueue.main.async {
+                    print(response)
+                }
+            }
+        }
     }
     
     @IBAction func status(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone stato premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.execute(sendable: Status(key: "arduino")) { (response) in
+                DispatchQueue.main.async {
+                    print(response)
+                }
+            }
+        }
     }
     
     @IBAction func reset(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            if let response = wikicontroller.execute(sendable: Reset(key: "arduino")) {
-                print(response)
+            wikicontroller.execute(sendable: Reset(key: "arduino")) { (response) in
+                DispatchQueue.main.async {
+                    print(response)
+                }
             }
         }
     }
