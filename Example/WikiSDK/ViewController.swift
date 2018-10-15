@@ -76,9 +76,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOn(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: On(key: "arduino", position: 1)) { [weak self] (response) in
+            wikicontroller.switchOn(key: "arduino", position: 1) { [weak self] response in
                 DispatchQueue.main.async {
-                    self?.showToast(message: response)
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
                 }
             }
         }
@@ -87,9 +91,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOff(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: Off(key: "arduino", position: 1)) { [weak self] (response) in
+            wikicontroller.switchOff(key: "arduino", position: 1) { [weak self] response in
                 DispatchQueue.main.async {
-                    self?.showToast(message: response)
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
                 }
             }
         }
@@ -98,9 +106,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func open(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { [weak self] (response) in
+            wikicontroller.openClose(key: "arduino", position: 2) { [weak self] response in
                 DispatchQueue.main.async {
-                    self?.showToast(message: response)
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
                 }
             }
         }
@@ -109,9 +121,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func close(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { [weak self] (response) in
+            wikicontroller.openClose(key: "arduino", position: 2) { [weak self] response in
                 DispatchQueue.main.async {
-                    self?.showToast(message: response)
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
                 }
             }
         }
@@ -120,7 +136,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func status(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: Status(key: "arduino")) { [weak self] (response) in
+            wikicontroller.status(key: "arduino") { [weak self] response in
                 DispatchQueue.main.async {
                     self?.showToast(message: response)
                 }
@@ -131,9 +147,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func reset(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: Reset(key: "arduino")) { [weak self] (response) in
+            wikicontroller.reset(key: "arduino") { [weak self] response in
                 DispatchQueue.main.async {
-                    self?.showToast(message: response)
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
                 }
             }
         }
