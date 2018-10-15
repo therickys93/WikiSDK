@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WikiSDK
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var wikiControllerServerTextField: UITextField!
     @IBOutlet weak var versionLabel: UILabel!
@@ -18,7 +19,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     private func updateStaticUI(){
         self.title = Wiki.Controllers.WikiController.TITLE
-        self.wikiControllerServerTextField.text = Wiki.Controllers.WikiController.DEFAULT_URL
+        self.wikiControllerServerTextField.text = Utils.loadWikiControllerURL()
         self.versionLabel.text = "Versione applicazione: \(Bundle.main.releaseVersionNumber).\(Bundle.main.buildVersionNumber)"
     }
     
@@ -29,6 +30,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.lightPickerView.delegate = self
         self.lightPickerView.dataSource = self
         self.pickerData = AppDelegate.leds
+        self.wikiControllerServerTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let text = textField.text {
+            Utils.saveWikiControllerURL(text)
+        }
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,27 +74,89 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func switchOn(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone accendi premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.switchOn(key: "arduino", position: 1) { [weak self] response in
+                DispatchQueue.main.async {
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func switchOff(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone spegni premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.switchOff(key: "arduino", position: 1) { [weak self] response in
+                DispatchQueue.main.async {
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func open(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone apri premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.openClose(key: "arduino", position: 2) { [weak self] response in
+                DispatchQueue.main.async {
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func close(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone chiudi premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.openClose(key: "arduino", position: 2) { [weak self] response in
+                DispatchQueue.main.async {
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func status(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone stato premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.status(key: "arduino") { [weak self] response in
+                DispatchQueue.main.async {
+                    self?.showToast(message: response)
+                }
+            }
+        }
     }
     
     @IBAction func reset(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone reset premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            wikicontroller.reset(key: "arduino") { [weak self] response in
+                DispatchQueue.main.async {
+                    if response {
+                        self?.showToast(message: "OK")
+                    } else {
+                        self?.showToast(message: "ERRORE")
+                    }
+                }
+            }
+        }
     }
     
     
@@ -112,3 +184,24 @@ extension Bundle {
         }
     }
 }
+
+extension UIViewController {
+    
+    func showToast(message: String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: 0, y: self.view.frame.size.height-100, width: self.view.frame.size.width, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } }

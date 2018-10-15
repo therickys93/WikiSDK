@@ -16,8 +16,8 @@
 		9C5B0F9021711FD900108145 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B0F8F21711FD900108145 /* Wiki.swift */; };
 		9CB8AB03216FB35600820E1B /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */; };
 		9CC80AD12170F0CF0091354E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC80AD02170F0CF0091354E /* Utils.swift */; };
+		9CFD44D92174ECAB0054BC60 /* Pods_WikiSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD44D82174ECAB0054BC60 /* Pods_WikiSDK_Example.framework */; };
 		CE32382F16003A7CF8375CEC /* Pods_WikiSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF009EC8776C2960D9BA7DB9 /* Pods_WikiSDK_Tests.framework */; };
-		EFEB7F040E13A1D9FF298E49 /* Pods_WikiSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3E5DDB914CE681A5321D1F /* Pods_WikiSDK_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,8 @@
 		9C5B0F8F21711FD900108145 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsTableViewController.swift; sourceTree = "<group>"; };
 		9CC80AD02170F0CF0091354E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9CFD44D62174EC910054BC60 /* WikiSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WikiSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFD44D82174ECAB0054BC60 /* Pods_WikiSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_WikiSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE3E5DDB914CE681A5321D1F /* Pods_WikiSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFF21E899FD16F842A4A2AE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CF009EC8776C2960D9BA7DB9 /* Pods_WikiSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFEB7F040E13A1D9FF298E49 /* Pods_WikiSDK_Example.framework in Frameworks */,
+				9CFD44D92174ECAB0054BC60 /* Pods_WikiSDK_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,8 @@
 		783273FCCFF3C0DCC95B9352 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CFD44D82174ECAB0054BC60 /* Pods_WikiSDK_Example.framework */,
+				9CFD44D62174EC910054BC60 /* WikiSDK.framework */,
 				BE3E5DDB914CE681A5321D1F /* Pods_WikiSDK_Example.framework */,
 				CF009EC8776C2960D9BA7DB9 /* Pods_WikiSDK_Tests.framework */,
 			);

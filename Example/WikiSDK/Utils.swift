@@ -32,4 +32,11 @@ public class Utils {
         return content.split(separator: Wiki.Constants.FILE_SEPARATOR_CHAR).map(String.init)
     }
     
+    public static func saveWikiControllerURL(_ url: String) {
+        UserDefaults.standard.set(url, forKey: Wiki.Controllers.WikiController.DEFAULT_KEY)
+    }
+    
+    public static func loadWikiControllerURL() -> String {
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiController.DEFAULT_KEY) ?? Wiki.Controllers.WikiController.DEFAULT_URL
+    }
 }
