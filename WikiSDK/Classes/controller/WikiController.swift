@@ -91,7 +91,10 @@ public class WikiController {
         let url = URL(string: "\(self._server)\(sendable.endpoint)")!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            guard let data = data else { return }
+            guard let data = data else {
+                handler("{'success': false}")
+                return
+            }
             handler(String(data: data, encoding: .utf8)!)
         }
         task.resume()
