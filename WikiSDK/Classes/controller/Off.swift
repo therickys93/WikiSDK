@@ -21,12 +21,16 @@ public class Off: Sendable {
         self.init(key: led.key, position: led.position)
     }
     
-    public func endpoint() -> String {
-        return self._endpoint
+    public var endpoint: String {
+        get {
+            return self._endpoint
+        }
     }
     
-    public func method() -> String {
-        return self._method
+    public var method: String {
+        get {
+            return self._method
+        }
     }
-    
+
 }

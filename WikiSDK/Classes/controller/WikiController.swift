@@ -16,7 +16,7 @@ public class WikiController {
     }
     
     public func execute(sendable: Sendable, completionHandler handler: @escaping (String) -> Void){
-        if sendable.method() == "GET" {
+        if sendable.method == "GET" {
             self.makeGetRequest(sendable: sendable) { (response) in
                 handler(response)
             }
@@ -24,7 +24,7 @@ public class WikiController {
     }
     
     private func makeGetRequest(sendable: Sendable, completionHandler handler: @escaping (String) -> Void) {
-        let url = URL(string: "\(self._server)\(sendable.endpoint())")!
+        let url = URL(string: "\(self._server)\(sendable.endpoint)")!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }

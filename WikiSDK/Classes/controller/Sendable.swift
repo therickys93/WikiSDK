@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol Sendable {
-    func endpoint() -> String
-    func method() -> String
+    var endpoint: String { get }
+    var method: String { get }
 }
