@@ -16,10 +16,22 @@
 		9CAB8F0321723E2D007FA769 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0021723E2D007FA769 /* Sendable.swift */; };
 		9CAB8F0421723E2D007FA769 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0121723E2D007FA769 /* Home.swift */; };
 		9CAB8F0521723E2D007FA769 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0121723E2D007FA769 /* Home.swift */; };
-		9CAB8F0821723E43007FA769 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0621723E43007FA769 /* Led.swift */; };
-		9CAB8F0921723E43007FA769 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0621723E43007FA769 /* Led.swift */; };
-		9CAB8F0A21723E43007FA769 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0721723E43007FA769 /* House.swift */; };
-		9CAB8F0B21723E43007FA769 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0721723E43007FA769 /* House.swift */; };
+		9CFD44C22174E97F0054BC60 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BC2174E97E0054BC60 /* Reset.swift */; };
+		9CFD44C32174E97F0054BC60 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BC2174E97E0054BC60 /* Reset.swift */; };
+		9CFD44C42174E97F0054BC60 /* Off.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BD2174E97F0054BC60 /* Off.swift */; };
+		9CFD44C52174E97F0054BC60 /* Off.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BD2174E97F0054BC60 /* Off.swift */; };
+		9CFD44C62174E97F0054BC60 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BE2174E97F0054BC60 /* Status.swift */; };
+		9CFD44C72174E97F0054BC60 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BE2174E97F0054BC60 /* Status.swift */; };
+		9CFD44C82174E97F0054BC60 /* WikiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BF2174E97F0054BC60 /* WikiController.swift */; };
+		9CFD44C92174E97F0054BC60 /* WikiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BF2174E97F0054BC60 /* WikiController.swift */; };
+		9CFD44CA2174E97F0054BC60 /* On.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44C02174E97F0054BC60 /* On.swift */; };
+		9CFD44CB2174E97F0054BC60 /* On.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44C02174E97F0054BC60 /* On.swift */; };
+		9CFD44CC2174E97F0054BC60 /* OpenClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44C12174E97F0054BC60 /* OpenClose.swift */; };
+		9CFD44CD2174E97F0054BC60 /* OpenClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44C12174E97F0054BC60 /* OpenClose.swift */; };
+		9CFD44D22174E9AF0054BC60 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44D02174E9AF0054BC60 /* Led.swift */; };
+		9CFD44D32174E9AF0054BC60 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44D02174E9AF0054BC60 /* Led.swift */; };
+		9CFD44D42174E9AF0054BC60 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44D12174E9AF0054BC60 /* House.swift */; };
+		9CFD44D52174E9AF0054BC60 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44D12174E9AF0054BC60 /* House.swift */; };
 		A11F3F3B702ADC1631C57C1267518F40 /* Pods-WikiSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2146A0C0319B3E1555652B5314865CD5 /* Pods-WikiSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB18A3166F99B8DF017D06EFF3E8F553 /* WikiSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A473D97D78168A4A066CFC33AA661450 /* WikiSDK-dummy.m */; };
 		C0EB535E54724156103819B964A3F32E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
@@ -69,8 +81,14 @@
 		9680E0DF5DED341C4CB0589082D9EC78 /* Pods-WikiSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WikiSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9CAB8F0021723E2D007FA769 /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sendable.swift; path = WikiSDK/Classes/controller/Sendable.swift; sourceTree = "<group>"; };
 		9CAB8F0121723E2D007FA769 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = WikiSDK/Classes/controller/Home.swift; sourceTree = "<group>"; };
-		9CAB8F0621723E43007FA769 /* Led.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Led.swift; path = ../WikiSDK/Classes/model/Led.swift; sourceTree = "<group>"; };
-		9CAB8F0721723E43007FA769 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = House.swift; path = ../WikiSDK/Classes/model/House.swift; sourceTree = "<group>"; };
+		9CFD44BC2174E97E0054BC60 /* Reset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reset.swift; path = WikiSDK/Classes/controller/Reset.swift; sourceTree = "<group>"; };
+		9CFD44BD2174E97F0054BC60 /* Off.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Off.swift; path = WikiSDK/Classes/controller/Off.swift; sourceTree = "<group>"; };
+		9CFD44BE2174E97F0054BC60 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = WikiSDK/Classes/controller/Status.swift; sourceTree = "<group>"; };
+		9CFD44BF2174E97F0054BC60 /* WikiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WikiController.swift; path = WikiSDK/Classes/controller/WikiController.swift; sourceTree = "<group>"; };
+		9CFD44C02174E97F0054BC60 /* On.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = On.swift; path = WikiSDK/Classes/controller/On.swift; sourceTree = "<group>"; };
+		9CFD44C12174E97F0054BC60 /* OpenClose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenClose.swift; path = WikiSDK/Classes/controller/OpenClose.swift; sourceTree = "<group>"; };
+		9CFD44D02174E9AF0054BC60 /* Led.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Led.swift; path = ../WikiSDK/Classes/model/Led.swift; sourceTree = "<group>"; };
+		9CFD44D12174E9AF0054BC60 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = House.swift; path = ../WikiSDK/Classes/model/House.swift; sourceTree = "<group>"; };
 		A473D97D78168A4A066CFC33AA661450 /* WikiSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WikiSDK-dummy.m"; sourceTree = "<group>"; };
 		A86D6BF8C16B4798F46FD8D0D1826A64 /* Pods-WikiSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WikiSDK_Example-dummy.m"; sourceTree = "<group>"; };
 		B4AFA70E2475887A22A3A6B3FA37D463 /* Pods-WikiSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WikiSDK_Tests.modulemap"; sourceTree = "<group>"; };
@@ -173,7 +191,7 @@
 		9CAB8EFC21723DC1007FA769 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9CAB8EFF21723E00007FA769 /* model */,
+				9CFD44CF2174E99C0054BC60 /* model */,
 				9CAB8EFD21723DCC007FA769 /* controller */,
 			);
 			name = Classes;
@@ -182,17 +200,23 @@
 		9CAB8EFD21723DCC007FA769 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				9CFD44BD2174E97F0054BC60 /* Off.swift */,
+				9CFD44C02174E97F0054BC60 /* On.swift */,
+				9CFD44C12174E97F0054BC60 /* OpenClose.swift */,
+				9CFD44BC2174E97E0054BC60 /* Reset.swift */,
+				9CFD44BE2174E97F0054BC60 /* Status.swift */,
+				9CFD44BF2174E97F0054BC60 /* WikiController.swift */,
 				9CAB8F0121723E2D007FA769 /* Home.swift */,
 				9CAB8F0021723E2D007FA769 /* Sendable.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
 		};
-		9CAB8EFF21723E00007FA769 /* model */ = {
+		9CFD44CF2174E99C0054BC60 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				9CAB8F0721723E43007FA769 /* House.swift */,
-				9CAB8F0621723E43007FA769 /* Led.swift */,
+				9CFD44D12174E9AF0054BC60 /* House.swift */,
+				9CFD44D02174E9AF0054BC60 /* Led.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -415,11 +439,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFD44C42174E97F0054BC60 /* Off.swift in Sources */,
 				C56F9F8ED0856A6E48416B2FEAC1421B /* Pods-WikiSDK_Example-dummy.m in Sources */,
-				9CAB8F0821723E43007FA769 /* Led.swift in Sources */,
+				9CFD44D42174E9AF0054BC60 /* House.swift in Sources */,
+				9CFD44C62174E97F0054BC60 /* Status.swift in Sources */,
+				9CFD44D22174E9AF0054BC60 /* Led.swift in Sources */,
 				9CAB8F0421723E2D007FA769 /* Home.swift in Sources */,
-				9CAB8F0A21723E43007FA769 /* House.swift in Sources */,
+				9CFD44C82174E97F0054BC60 /* WikiController.swift in Sources */,
 				9CAB8F0221723E2D007FA769 /* Sendable.swift in Sources */,
+				9CFD44CA2174E97F0054BC60 /* On.swift in Sources */,
+				9CFD44C22174E97F0054BC60 /* Reset.swift in Sources */,
+				9CFD44CC2174E97F0054BC60 /* OpenClose.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,11 +457,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFD44C52174E97F0054BC60 /* Off.swift in Sources */,
 				AB18A3166F99B8DF017D06EFF3E8F553 /* WikiSDK-dummy.m in Sources */,
-				9CAB8F0921723E43007FA769 /* Led.swift in Sources */,
+				9CFD44D52174E9AF0054BC60 /* House.swift in Sources */,
+				9CFD44C72174E97F0054BC60 /* Status.swift in Sources */,
+				9CFD44D32174E9AF0054BC60 /* Led.swift in Sources */,
 				9CAB8F0521723E2D007FA769 /* Home.swift in Sources */,
-				9CAB8F0B21723E43007FA769 /* House.swift in Sources */,
+				9CFD44C92174E97F0054BC60 /* WikiController.swift in Sources */,
 				9CAB8F0321723E2D007FA769 /* Sendable.swift in Sources */,
+				9CFD44CB2174E97F0054BC60 /* On.swift in Sources */,
+				9CFD44C32174E97F0054BC60 /* Reset.swift in Sources */,
+				9CFD44CD2174E97F0054BC60 /* OpenClose.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

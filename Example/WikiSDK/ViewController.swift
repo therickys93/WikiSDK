@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WikiSDK
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
@@ -73,11 +74,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func switchOn(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone accendi premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            if let response = wikicontroller.execute(sendable: On(key: "arduino", position: 1)) {
+                print(response)
+            }
+        }
     }
     
     @IBAction func switchOff(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone spegni premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            if let response = wikicontroller.execute(sendable: Off(key: "arduino", position: 1)) {
+                print(response)
+            }
+        }
     }
     
     @IBAction func open(_ sender: UIButton) {
@@ -93,7 +104,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func reset(_ sender: UIButton) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone reset premuto")
+        if let server = self.wikiControllerServerTextField.text {
+            let wikicontroller = WikiController(server: server)
+            if let response = wikicontroller.execute(sendable: Reset(key: "arduino")) {
+                print(response)
+            }
+        }
     }
     
     
