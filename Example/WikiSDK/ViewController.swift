@@ -76,9 +76,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOn(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: On(key: "arduino", position: 1)) { (response) in
+            wikicontroller.execute(sendable: On(key: "arduino", position: 1)) { [weak self] (response) in
                 DispatchQueue.main.async {
-                    print(response)
+                    self?.showToast(message: response)
                 }
             }
         }
@@ -87,9 +87,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOff(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: Off(key: "arduino", position: 1)) { (response) in
+            wikicontroller.execute(sendable: Off(key: "arduino", position: 1)) { [weak self] (response) in
                 DispatchQueue.main.async {
-                    print(response)
+                    self?.showToast(message: response)
                 }
             }
         }
@@ -98,9 +98,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func open(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { (response) in
+            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { [weak self] (response) in
                 DispatchQueue.main.async {
-                    print(response)
+                    self?.showToast(message: response)
                 }
             }
         }
@@ -109,9 +109,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func close(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { (response) in
+            wikicontroller.execute(sendable: OpenClose(key: "arduino", position: 2)) { [weak self] (response) in
                 DispatchQueue.main.async {
-                    print(response)
+                    self?.showToast(message: response)
                 }
             }
         }
@@ -120,9 +120,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func status(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: Status(key: "arduino")) { (response) in
+            wikicontroller.execute(sendable: Status(key: "arduino")) { [weak self] (response) in
                 DispatchQueue.main.async {
-                    print(response)
+                    self?.showToast(message: response)
                 }
             }
         }
@@ -131,9 +131,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func reset(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.execute(sendable: Reset(key: "arduino")) { (response) in
+            wikicontroller.execute(sendable: Reset(key: "arduino")) { [weak self] (response) in
                 DispatchQueue.main.async {
-                    print(response)
+                    self?.showToast(message: response)
                 }
             }
         }
@@ -164,3 +164,24 @@ extension Bundle {
         }
     }
 }
+
+extension UIViewController {
+    
+    func showToast(message: String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: 0, y: self.view.frame.size.height-100, width: self.view.frame.size.width, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } }
