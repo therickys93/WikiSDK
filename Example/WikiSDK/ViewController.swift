@@ -122,12 +122,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func open(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.openClose(key: "arduino", position: 2) { [weak self] response in
-                DispatchQueue.main.async {
-                    if response {
-                        self?.showToast(message: "OK")
-                    } else {
-                        self?.showToast(message: "ERRORE")
+            if let led = getLedFromPickerView() {
+                wikicontroller.openClose(led: led) { [weak self] response in
+                    DispatchQueue.main.async {
+                        if response {
+                            self?.showToast(message: "OK")
+                        } else {
+                            self?.showToast(message: "ERRORE")
+                        }
                     }
                 }
             }
@@ -137,12 +139,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func close(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.openClose(key: "arduino", position: 2) { [weak self] response in
-                DispatchQueue.main.async {
-                    if response {
-                        self?.showToast(message: "OK")
-                    } else {
-                        self?.showToast(message: "ERRORE")
+            if let led = getLedFromPickerView() {
+                wikicontroller.openClose(led: led) { [weak self] response in
+                    DispatchQueue.main.async {
+                        if response {
+                            self?.showToast(message: "OK")
+                        } else {
+                            self?.showToast(message: "ERRORE")
+                        }
                     }
                 }
             }
@@ -152,9 +156,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func status(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.status(key: "arduino") { [weak self] response in
-                DispatchQueue.main.async {
-                    self?.showToast(message: response)
+            if let led = getLedFromPickerView() {
+                wikicontroller.status(key: led.key) { [weak self] response in
+                    DispatchQueue.main.async {
+                        self?.showToast(message: response)
+                    }
                 }
             }
         }
@@ -163,12 +169,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func reset(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.reset(key: "arduino") { [weak self] response in
-                DispatchQueue.main.async {
-                    if response {
-                        self?.showToast(message: "OK")
-                    } else {
-                        self?.showToast(message: "ERRORE")
+            if let led = getLedFromPickerView() {
+                wikicontroller.reset(key: led.key) { [weak self] response in
+                    DispatchQueue.main.async {
+                        if response {
+                            self?.showToast(message: "OK")
+                        } else {
+                            self?.showToast(message: "ERRORE")
+                        }
                     }
                 }
             }
