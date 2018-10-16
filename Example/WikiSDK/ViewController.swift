@@ -29,7 +29,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         updateStaticUI()
         self.lightPickerView.delegate = self
         self.lightPickerView.dataSource = self
-        self.pickerData = AppDelegate.leds
         self.wikiControllerServerTextField.delegate = self
     }
     
@@ -41,16 +40,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return true
     }
     
+    private func getAllAccessoriesNames() -> [String] {
+        var names = [String]()
+        for led in AppDelegate.house.led {
+            names.append(led.name)
+        }
+        return names
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.pickerData.removeAll()
-        self.pickerData = AppDelegate.leds
+        self.pickerData = getAllAccessoriesNames()
         self.lightPickerView.reloadAllComponents()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func getLedFromPickerView() -> Led? {
+        let name = self.pickerData[self.lightPickerView.selectedRow(inComponent: 0)]
+        return AppDelegate.house.getLedByName(name)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -76,12 +88,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOn(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.switchOn(key: "arduino", position: 1) { [weak self] response in
-                DispatchQueue.main.async {
-                    if response {
-                        self?.showToast(message: "OK")
-                    } else {
-                        self?.showToast(message: "ERRORE")
+            if let led = getLedFromPickerView() {
+                wikicontroller.switchOn(led: led) { [weak self] response in
+                    DispatchQueue.main.async {
+                        if response {
+                            self?.showToast(message: "OK")
+                        } else {
+                            self?.showToast(message: "ERRORE")
+                        }
                     }
                 }
             }
@@ -91,12 +105,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func switchOff(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)
-            wikicontroller.switchOff(key: "arduino", position: 1) { [weak self] response in
-                DispatchQueue.main.async {
-                    if response {
-                        self?.showToast(message: "OK")
-                    } else {
-                        self?.showToast(message: "ERRORE")
+            if let led = getLedFromPickerView() {
+                wikicontroller.switchOff(led: led) { [weak self] response in
+                    DispatchQueue.main.async {
+                        if response {
+                            self?.showToast(message: "OK")
+                        } else {
+                            self?.showToast(message: "ERRORE")
+                        }
                     }
                 }
             }

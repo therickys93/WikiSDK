@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import WikiSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    static var leds = [String]()
+    static var house = House()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        AppDelegate.leds = Utils.readFile(file: Wiki.Constants.DBFILE)
+        // AppDelegate.leds = Utils.readFile(file: Wiki.Constants.DBFILE)
         return true
     }
 

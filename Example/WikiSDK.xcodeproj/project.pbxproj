@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		9C2A6A1621764CF90026DC27 /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A6A1521764CF90026DC27 /* LightTableViewCell.swift */; };
 		9C5B0F9021711FD900108145 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B0F8F21711FD900108145 /* Wiki.swift */; };
 		9CB8AB03216FB35600820E1B /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */; };
 		9CC80AD12170F0CF0091354E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC80AD02170F0CF0091354E /* Utils.swift */; };
@@ -46,6 +47,7 @@
 		78CEA7AF28B45CE5F63DEA4E /* Pods-WikiSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikiSDK_Example/Pods-WikiSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		869789FD28B97AC1571761F2 /* Pods-WikiSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WikiSDK_Example/Pods-WikiSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8990329F81FDE3A6E4B48677 /* Pods-WikiSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikiSDK_Tests/Pods-WikiSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9C2A6A1521764CF90026DC27 /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
 		9C5B0F8F21711FD900108145 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsTableViewController.swift; sourceTree = "<group>"; };
 		9CC80AD02170F0CF0091354E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				9C2A6A1521764CF90026DC27 /* LightTableViewCell.swift */,
 				9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -351,6 +354,7 @@
 				9C5B0F9021711FD900108145 /* Wiki.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				9C2A6A1621764CF90026DC27 /* LightTableViewCell.swift in Sources */,
 				9CC80AD12170F0CF0091354E /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

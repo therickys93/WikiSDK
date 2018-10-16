@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import WikiSDK
 
 class LightsTableViewController: UITableViewController {
-
-    private var leds = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +18,6 @@ class LightsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.leds = AppDelegate.leds
         self.tableView.reloadData()
     }
 
@@ -30,27 +28,31 @@ class LightsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.leds.count > 0 {
-            return self.leds.count
+        if AppDelegate.house.ledCount() > 0 {
+            return AppDelegate.house.ledCount()
         } else {
             return 0
         }
+    }
+    
+    private func getLedAt(indexPath: IndexPath) -> Led {
+        return AppDelegate.house.getLedAtPosition(indexPath.row)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Wiki.Controllers.LightsController.CELL_REUSE_IDENTIFIER, for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = AppDelegate.leds[indexPath.row]
-
+        if let ledCell = cell as? LightTableViewCell {
+            ledCell.led = getLedAt(indexPath: indexPath)
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            AppDelegate.leds.remove(at: indexPath.row)
-            self.leds = AppDelegate.leds
-            Utils.writeContent(AppDelegate.leds.joined(separator: Wiki.Constants.FILE_SEPARATOR_STRING), toFile: Wiki.Constants.DBFILE)
+            AppDelegate.house.removeLedAt(indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -74,10 +76,16 @@ class LightsTableViewController: UITableViewController {
         let alertController = UIAlertController(title: "Nuovo Accessorio", message: "Inserisci nome nuovo accessorio", preferredStyle: .alert)
         
         let confirmAction = UIAlertAction(title: "Inserisci", style: .default) { (_) in
-            if let name = alertController.textFields?[0].text {
-                AppDelegate.leds.append(name)
-                self.leds = AppDelegate.leds
-                Utils.writeContent(AppDelegate.leds.joined(separator: Wiki.Constants.FILE_SEPARATOR_STRING), toFile: Wiki.Constants.DBFILE)
+            if let name = alertController.textFields?[0].text,
+                let key = alertController.textFields?[1].text,
+                let position = alertController.textFields?[2].text {
+                let response = AppDelegate.house.addLed(Led(name: name, key: key, position: Int(position) ?? -1))
+                if !response {
+                    // notify the error
+                    let alertController2 = UIAlertController(title: "Attenzione", message: "Accessorio già aggiunto", preferredStyle: .alert)
+                    alertController2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alertController2, animated: true, completion: nil)
+                }
                 self.tableView.reloadData()
             }
         }
@@ -85,6 +93,13 @@ class LightsTableViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: "Cancella", style: .cancel) { (_) in }
         alertController.addTextField { (textField) in
             textField.placeholder = "Inserisci il nome"
+        }
+        alertController.addTextField { textfield in
+            textfield.placeholder = "Inserisci chiave"
+        }
+        alertController.addTextField { textfield in
+            textfield.placeholder = "Inserisci posizione"
+            textfield.keyboardType = UIKeyboardType.decimalPad
         }
         
         alertController.addAction(confirmAction)
