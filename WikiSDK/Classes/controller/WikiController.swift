@@ -15,6 +15,15 @@ public class WikiController {
         self._server = server
     }
     
+    public static func createStringFromLeds(_ leds: [Led]) -> String {
+        var json = "["
+        for led in leds {
+            json += "{\"name\": \"\(led.name)\", \"key\": \"\(led.key)\", \"position\":\(led.position)},"
+        }
+        json += "]"
+        return json
+    }
+    
     public static func parseLedsFromString(_ ledString: String) -> [Led] {
         var leds = [Led]()
         do {

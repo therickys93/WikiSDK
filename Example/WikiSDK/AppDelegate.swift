@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        // AppDelegate.leds = Utils.readFile(file: Wiki.Constants.DBFILE)
+        AppDelegate.house.led = Utils.readLeds(file: Wiki.Constants.DBFILE)
         return true
     }
 

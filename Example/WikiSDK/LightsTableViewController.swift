@@ -53,6 +53,7 @@ class LightsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             AppDelegate.house.removeLedAt(indexPath.row)
+            Utils.saveLeds(AppDelegate.house.led, inFile: Wiki.Constants.DBFILE)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -63,6 +64,7 @@ class LightsTableViewController: UITableViewController {
         wikicontroller.download { [weak self] leds in
             DispatchQueue.main.async {
                 AppDelegate.house.led = leds
+                Utils.saveLeds(AppDelegate.house.led, inFile: Wiki.Constants.DBFILE)
                 self?.tableView.reloadData()
             }
         }
@@ -93,6 +95,7 @@ class LightsTableViewController: UITableViewController {
                     alertController2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alertController2, animated: true, completion: nil)
                 }
+                Utils.saveLeds(AppDelegate.house.led, inFile: Wiki.Constants.DBFILE)
                 self.tableView.reloadData()
             }
         }
