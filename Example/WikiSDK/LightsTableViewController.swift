@@ -58,7 +58,14 @@ class LightsTableViewController: UITableViewController {
     }
     
     @IBAction func download(_ sender: UIBarButtonItem) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone download premuto")
+        let server = Utils.loadWikiControllerURL()
+        let wikicontroller = WikiController(server: server)
+        wikicontroller.download { [weak self] leds in
+            DispatchQueue.main.async {
+                AppDelegate.house.led = leds
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     @IBAction func upload(_ sender: UIBarButtonItem) {

@@ -15,6 +15,30 @@ public class WikiController {
         self._server = server
     }
     
+    public static func parseLedsFromString(_ ledString: String) -> [Led] {
+        var leds = [Led]()
+        do {
+            let json = try JSONSerialization.jsonObject(with: ledString.data(using: .utf8)!, options: .allowFragments) as? [[String : Any]]
+            for i in 0..<json!.count {
+                let name = json?[i]["name"] as? String
+                let key  = json?[i]["key"] as? String
+                let position = json?[i]["position"] as? Int
+                let led = Led(name: name!, key: key!, position: position!)
+                leds.append(led)
+            }
+        } catch {
+            leds.removeAll()
+        }
+        return leds
+    }
+    
+    public func download(_ handler: @escaping ([Led]) -> Void) {
+        self.execute(sendable: Download()) { response in
+            let leds = WikiController.parseLedsFromString(response)
+            handler(leds)
+        }
+    }
+    
     public func reset(key: String, completionHandler handler: @escaping (Bool) -> Void) {
         self.execute(sendable: Reset(key: key)) { response in
             if response.contains("true") {
