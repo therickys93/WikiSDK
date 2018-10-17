@@ -27,6 +27,7 @@ Semplice API scritta in Swift per il progetto Wiki.
   s.source           = { :git => 'https://github.com/therickys93/WikiSDK.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  s.swift_version         = '4.2'
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'WikiSDK/Classes/**/*'
