@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WikiSDK
 
 public class Utils {
     
@@ -30,6 +31,15 @@ public class Utils {
     public static func readFile(file: String) -> [String] {
         let content = Utils.readContentOfFile(file: file)
         return content.split(separator: Wiki.Constants.FILE_SEPARATOR_CHAR).map(String.init)
+    }
+    
+    public static func readLeds(file: String) -> [Led] {
+        return WikiController.parseLedsFromString(Utils.readContentOfFile(file: file))
+    }
+    
+    public static func saveLeds(_ leds: [Led], inFile file: String) {
+        let content = WikiController.createStringFromLeds(leds)
+        Utils.writeContent(content, toFile: file)
     }
     
     public static func saveWikiControllerURL(_ url: String) {

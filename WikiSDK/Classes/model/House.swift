@@ -54,7 +54,7 @@ public class House {
         return nil
     }
     
-    public func addLed(_ led: Led){
+    public func addLed(_ led: Led) -> Bool {
         var ok = true
         for l in self._leds {
             if l.name == led.name || (l.position == led.position && led.key == l.key) {
@@ -65,6 +65,7 @@ public class House {
         if ok {
             self._leds.append(led)
         }
+        return ok
     }
     
 }

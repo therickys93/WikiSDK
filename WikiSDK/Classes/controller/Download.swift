@@ -1,24 +1,20 @@
 //
-//  On.swift
+//  Download.swift
 //  Pods
 //
-//  Created by Riccardo Crippa on 10/14/18.
+//  Created by Riccardo Crippa on 10/16/18.
 //
 
 import Foundation
 
-public class On: Sendable {
+public class Download: Sendable {
     
     private var _endpoint: String
     private var _method: String
     
-    public init(key: String, position: Int) {
+    public init() {
         self._method = "GET"
-        self._endpoint = "/on/\(key)/\(position)"
-    }
-    
-    public convenience init(led: Led) {
-        self.init(key: led.key, position: led.position)
+        self._endpoint = "/download"
     }
     
     public var endpoint: String {
@@ -38,5 +34,5 @@ public class On: Sendable {
             return nil
         }
     }
-
+    
 }

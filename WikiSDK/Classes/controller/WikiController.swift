@@ -15,6 +15,50 @@ public class WikiController {
         self._server = server
     }
     
+    public static func createStringFromLeds(_ leds: [Led]) -> String {
+        var json = "["
+        for led in leds {
+            json += "{\"name\": \"\(led.name)\", \"key\": \"\(led.key)\", \"position\":\(led.position)},"
+        }
+        json.remove(at: json.index(before: json.endIndex))
+        json += "]"
+        return json
+    }
+    
+    public static func parseLedsFromString(_ ledString: String) -> [Led] {
+        var leds = [Led]()
+        do {
+            let json = try JSONSerialization.jsonObject(with: ledString.data(using: .utf8)!, options: .allowFragments) as? [[String : Any]]
+            for i in 0..<json!.count {
+                let name = json?[i]["name"] as? String
+                let key  = json?[i]["key"] as? String
+                let position = json?[i]["position"] as? Int
+                let led = Led(name: name!, key: key!, position: position!)
+                leds.append(led)
+            }
+        } catch {
+            leds.removeAll()
+        }
+        return leds
+    }
+    
+    public func upload(leds: [Led], completionHandler handler: @escaping (Bool) -> Void) {
+        self.execute(sendable: Upload(leds: leds)) { response in
+            if response.contains("true") {
+                handler(true)
+            } else {
+                handler(false)
+            }
+        }
+    }
+    
+    public func download(_ handler: @escaping ([Led]) -> Void) {
+        self.execute(sendable: Download()) { response in
+            let leds = WikiController.parseLedsFromString(response)
+            handler(leds)
+        }
+    }
+    
     public func reset(key: String, completionHandler handler: @escaping (Bool) -> Void) {
         self.execute(sendable: Reset(key: key)) { response in
             if response.contains("true") {
@@ -48,7 +92,7 @@ public class WikiController {
     }
     
     public func switchOff(led: Led, completionHandler handler: @escaping (Bool) -> Void) {
-        self.switchOn(key: led.key, position: led.position) { response in
+        self.switchOff(key: led.key, position: led.position) { response in
             handler(response)
         }
     }
@@ -84,6 +128,10 @@ public class WikiController {
             self.makeGetRequest(sendable: sendable) { (response) in
                 handler(response)
             }
+        } else if sendable.method == "POST" {
+            self.makePostRequest(sendable: sendable) { (response) in
+                handler(response)
+            }
         }
     }
     
@@ -91,8 +139,29 @@ public class WikiController {
         let url = URL(string: "\(self._server)\(sendable.endpoint)")!
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            guard let data = data else { return }
+            guard let data = data else {
+                handler("{'success': false}")
+                return
+            }
             handler(String(data: data, encoding: .utf8)!)
+        }
+        task.resume()
+    }
+    
+    private func makePostRequest(sendable: Sendable, completionHandler handler: @escaping (String) -> Void) {
+        let url = URL(string: "\(self._server)\(sendable.endpoint)")
+        var request = URLRequest(url: url!)
+        request.httpMethod = sendable.method
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        print(sendable.json!)
+        request.httpBody = sendable.json?.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                handler("{'success': false}")
+                return
+            }
+            let result = String(data: data, encoding: .utf8)
+            handler(result!)
         }
         task.resume()
     }
