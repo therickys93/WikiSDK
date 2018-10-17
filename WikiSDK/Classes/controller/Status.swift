@@ -29,4 +29,10 @@ public class Status: Sendable {
         }
     }
     
+    public var json: String? {
+        get {
+            return nil
+        }
+    }
+    
 }

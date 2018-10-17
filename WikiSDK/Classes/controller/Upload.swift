@@ -1,24 +1,22 @@
 //
-//  On.swift
+//  Upload.swift
 //  Pods
 //
-//  Created by Riccardo Crippa on 10/14/18.
+//  Created by Riccardo Crippa on 10/16/18.
 //
 
 import Foundation
 
-public class On: Sendable {
+public class Upload: Sendable {
     
     private var _endpoint: String
     private var _method: String
+    private var _json: String
     
-    public init(key: String, position: Int) {
-        self._method = "GET"
-        self._endpoint = "/on/\(key)/\(position)"
-    }
-    
-    public convenience init(led: Led) {
-        self.init(key: led.key, position: led.position)
+    public init(leds: [Led]) {
+        self._method   = "POST"
+        self._endpoint = "/upload"
+        self._json     = WikiController.createStringFromLeds(leds)
     }
     
     public var endpoint: String {
@@ -35,8 +33,8 @@ public class On: Sendable {
     
     public var json: String? {
         get {
-            return nil
+            return self._json
         }
     }
-
+    
 }

@@ -32,5 +32,11 @@ public class Off: Sendable {
             return self._method
         }
     }
+    
+    public var json: String? {
+        get {
+            return nil
+        }
+    }
 
 }

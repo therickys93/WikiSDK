@@ -29,4 +29,10 @@ public class Home: Sendable {
         }
     }
     
+    public var json: String? {
+        get {
+            return nil
+        }
+    }
+    
 }

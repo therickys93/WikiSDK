@@ -29,4 +29,10 @@ public class Reset: Sendable {
         }
     }
     
+    public var json: String? {
+        get {
+            return nil
+        }
+    }
+    
 }

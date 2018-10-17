@@ -20,6 +20,7 @@ public class WikiController {
         for led in leds {
             json += "{\"name\": \"\(led.name)\", \"key\": \"\(led.key)\", \"position\":\(led.position)},"
         }
+        json.remove(at: json.index(before: json.endIndex))
         json += "]"
         return json
     }
@@ -39,6 +40,16 @@ public class WikiController {
             leds.removeAll()
         }
         return leds
+    }
+    
+    public func upload(leds: [Led], completionHandler handler: @escaping (Bool) -> Void) {
+        self.execute(sendable: Upload(leds: leds)) { response in
+            if response.contains("true") {
+                handler(true)
+            } else {
+                handler(false)
+            }
+        }
     }
     
     public func download(_ handler: @escaping ([Led]) -> Void) {
@@ -117,6 +128,10 @@ public class WikiController {
             self.makeGetRequest(sendable: sendable) { (response) in
                 handler(response)
             }
+        } else if sendable.method == "POST" {
+            self.makePostRequest(sendable: sendable) { (response) in
+                handler(response)
+            }
         }
     }
     
@@ -129,6 +144,24 @@ public class WikiController {
                 return
             }
             handler(String(data: data, encoding: .utf8)!)
+        }
+        task.resume()
+    }
+    
+    private func makePostRequest(sendable: Sendable, completionHandler handler: @escaping (String) -> Void) {
+        let url = URL(string: "\(self._server)\(sendable.endpoint)")
+        var request = URLRequest(url: url!)
+        request.httpMethod = sendable.method
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        print(sendable.json!)
+        request.httpBody = sendable.json?.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                handler("{'success': false}")
+                return
+            }
+            let result = String(data: data, encoding: .utf8)
+            handler(result!)
         }
         task.resume()
     }

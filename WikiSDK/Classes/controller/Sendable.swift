@@ -10,4 +10,5 @@ import Foundation
 public protocol Sendable {
     var endpoint: String { get }
     var method: String { get }
+    var json: String? { get }
 }

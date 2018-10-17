@@ -71,7 +71,17 @@ class LightsTableViewController: UITableViewController {
     }
     
     @IBAction func upload(_ sender: UIBarButtonItem) {
-        showAlertViewWithTitle("DA FARE", andMessage: "bottone upload premuto")
+        let server = Utils.loadWikiControllerURL()
+        let wikicontroller = WikiController(server: server)
+        wikicontroller.upload(leds: AppDelegate.house.led) { [weak self] response in
+            DispatchQueue.main.async {
+                if response {
+                    self?.showToast(message: "OK")
+                } else {
+                    self?.showToast(message: "ERRORE")
+                }
+            }
+        }
     }
     
     private func showAlertViewWithTitle(_ title: String, andMessage message: String){

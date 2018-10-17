@@ -18,6 +18,8 @@
 		9C2A6A142176499E0026DC27 /* Led.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A6A102176499E0026DC27 /* Led.swift */; };
 		9C2A6A1821765F6B0026DC27 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A6A1721765F6B0026DC27 /* Download.swift */; };
 		9C2A6A1921765F6B0026DC27 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A6A1721765F6B0026DC27 /* Download.swift */; };
+		9C2A6A1B21766E8C0026DC27 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A6A1A21766E8C0026DC27 /* Upload.swift */; };
+		9C2A6A1C21766E8C0026DC27 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A6A1A21766E8C0026DC27 /* Upload.swift */; };
 		9CAB8F0221723E2D007FA769 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0021723E2D007FA769 /* Sendable.swift */; };
 		9CAB8F0321723E2D007FA769 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0021723E2D007FA769 /* Sendable.swift */; };
 		9CAB8F0421723E2D007FA769 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0121723E2D007FA769 /* Home.swift */; };
@@ -84,6 +86,7 @@
 		9C2A6A0F2176499E0026DC27 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = House.swift; path = WikiSDK/Classes/model/House.swift; sourceTree = "<group>"; };
 		9C2A6A102176499E0026DC27 /* Led.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Led.swift; path = WikiSDK/Classes/model/Led.swift; sourceTree = "<group>"; };
 		9C2A6A1721765F6B0026DC27 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Download.swift; path = WikiSDK/Classes/controller/Download.swift; sourceTree = "<group>"; };
+		9C2A6A1A21766E8C0026DC27 /* Upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = WikiSDK/Classes/controller/Upload.swift; sourceTree = "<group>"; };
 		9CAB8F0021723E2D007FA769 /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sendable.swift; path = WikiSDK/Classes/controller/Sendable.swift; sourceTree = "<group>"; };
 		9CAB8F0121723E2D007FA769 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = WikiSDK/Classes/controller/Home.swift; sourceTree = "<group>"; };
 		9CFD44BC2174E97E0054BC60 /* Reset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reset.swift; path = WikiSDK/Classes/controller/Reset.swift; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 				9CAB8F0121723E2D007FA769 /* Home.swift */,
 				9CAB8F0021723E2D007FA769 /* Sendable.swift */,
 				9C2A6A1721765F6B0026DC27 /* Download.swift */,
+				9C2A6A1A21766E8C0026DC27 /* Upload.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -449,6 +453,7 @@
 				9CAB8F0421723E2D007FA769 /* Home.swift in Sources */,
 				9CFD44C82174E97F0054BC60 /* WikiController.swift in Sources */,
 				9C2A6A132176499E0026DC27 /* Led.swift in Sources */,
+				9C2A6A1B21766E8C0026DC27 /* Upload.swift in Sources */,
 				9CAB8F0221723E2D007FA769 /* Sendable.swift in Sources */,
 				9CFD44CA2174E97F0054BC60 /* On.swift in Sources */,
 				9CFD44C22174E97F0054BC60 /* Reset.swift in Sources */,
@@ -468,6 +473,7 @@
 				9CAB8F0521723E2D007FA769 /* Home.swift in Sources */,
 				9CFD44C92174E97F0054BC60 /* WikiController.swift in Sources */,
 				9C2A6A142176499E0026DC27 /* Led.swift in Sources */,
+				9C2A6A1C21766E8C0026DC27 /* Upload.swift in Sources */,
 				9CAB8F0321723E2D007FA769 /* Sendable.swift in Sources */,
 				9CFD44CB2174E97F0054BC60 /* On.swift in Sources */,
 				9CFD44C32174E97F0054BC60 /* Reset.swift in Sources */,
