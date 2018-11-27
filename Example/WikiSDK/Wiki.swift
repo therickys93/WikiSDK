@@ -11,6 +11,7 @@ import Foundation
 struct Wiki {
     struct Constants {
         static let DBFILE                         = "wiki.json"
+        static let LOGFILE                        = "wiki_iOS.log"
         static let NO_LIGHTS_FOUND                = "Nessun Accessorio trovato"
         static let FILE_SEPARATOR_CHAR: Character = "\n"
         static let FILE_SEPARATOR_STRING: String  = "\n"

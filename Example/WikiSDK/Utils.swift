@@ -28,6 +28,22 @@ public class Utils {
         }
     }
     
+    private static func timestamp() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy_MM_dd_hh_mm_ss"
+        return formatter.string(from: date)
+    }
+    
+    public static func writeToLog(_ content: String){
+        let newContent = "[\(timestamp())] \(content)"
+        Utils.writeContent(newContent, toFile: Wiki.Constants.LOGFILE)
+    }
+    
+    public static func readFromLog() -> [String] {
+        return Utils.readFile(file: Wiki.Constants.LOGFILE)
+    }
+    
     public static func readFile(file: String) -> [String] {
         let content = Utils.readContentOfFile(file: file)
         return content.split(separator: Wiki.Constants.FILE_SEPARATOR_CHAR).map(String.init)
