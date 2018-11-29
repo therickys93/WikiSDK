@@ -35,6 +35,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let text = textField.text {
+            Utils.writeToLog("New WikiController URL: \(text)")
             Utils.saveWikiControllerURL(text)
         }
         return true
@@ -53,11 +54,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.pickerData.removeAll()
         self.pickerData = getAllAccessoriesNames()
         self.lightPickerView.reloadAllComponents()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func getLedFromPickerView() -> Led? {
@@ -81,6 +77,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if self.pickerData.count > 0 {
             return self.pickerData[row]
         } else {
+            Utils.writeToLog("No Lights found")
             return Wiki.Constants.NO_LIGHTS_FOUND
         }
     }
@@ -92,8 +89,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 wikicontroller.switchOn(led: led) { [weak self] response in
                     DispatchQueue.main.async {
                         if response {
+                            Utils.writeToLog("Switch on led: \(led.name) --> response OK")
                             self?.showToast(message: "OK")
                         } else {
+                            Utils.writeToLog("Switch on led: \(led.name) --> response ERRORE")
                             self?.showToast(message: "ERRORE")
                         }
                     }
@@ -109,8 +108,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 wikicontroller.switchOff(led: led) { [weak self] response in
                     DispatchQueue.main.async {
                         if response {
+                            Utils.writeToLog("Switch off led: \(led.name) --> response OK")
                             self?.showToast(message: "OK")
                         } else {
+                            Utils.writeToLog("Switch off led: \(led.name) --> response ERROR")
                             self?.showToast(message: "ERRORE")
                         }
                     }
@@ -126,8 +127,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 wikicontroller.openClose(led: led) { [weak self] response in
                     DispatchQueue.main.async {
                         if response {
+                            Utils.writeToLog("Open led: \(led.name) --> response OK")
                             self?.showToast(message: "OK")
                         } else {
+                            Utils.writeToLog("Open led: \(led.name) --> response ERRORE")
                             self?.showToast(message: "ERRORE")
                         }
                     }
@@ -143,8 +146,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 wikicontroller.openClose(led: led) { [weak self] response in
                     DispatchQueue.main.async {
                         if response {
+                            Utils.writeToLog("Close led: \(led.name) --> response OK")
                             self?.showToast(message: "OK")
                         } else {
+                            Utils.writeToLog("Close led: \(led.name) --> response ERRORE")
                             self?.showToast(message: "ERRORE")
                         }
                     }
@@ -159,6 +164,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             if let led = getLedFromPickerView() {
                 wikicontroller.status(key: led.key) { [weak self] response in
                     DispatchQueue.main.async {
+                        Utils.writeToLog("Status led: \(led.name) --> response \(response)")
                         self?.showToast(message: response)
                     }
                 }
@@ -173,8 +179,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 wikicontroller.reset(key: led.key) { [weak self] response in
                     DispatchQueue.main.async {
                         if response {
+                            Utils.writeToLog("Reset key: \(led.key) --> response OK")
                             self?.showToast(message: "OK")
                         } else {
+                            Utils.writeToLog("Reset key: \(led.key) --> response ERRORE")
                             self?.showToast(message: "ERRORE")
                         }
                     }

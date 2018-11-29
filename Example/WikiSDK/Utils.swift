@@ -24,8 +24,35 @@ public class Utils {
     public static func writeContent(_ content: String, toFile file: String) {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appendingPathComponent(file)
-            try? content.write(to: fileURL, atomically: true, encoding: .utf8)
+            if FileManager.default.fileExists(atPath: fileURL.path){
+                do {
+                    let fileHandle = try FileHandle(forWritingTo: fileURL)
+                    fileHandle.seekToEndOfFile()
+                    fileHandle.write(content.data(using: .utf8, allowLossyConversion: false)!)
+                    fileHandle.closeFile()
+                } catch {
+                    print("Error writing to File")
+                }
+            } else {
+                try? content.write(to: fileURL, atomically: true, encoding: .utf8)
+            }
         }
+    }
+    
+    private static func timestamp() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy_MM_dd_hh_mm_ss"
+        return formatter.string(from: date)
+    }
+    
+    public static func writeToLog(_ content: String){
+        let newContent = "[\(timestamp())] \(content)\r\n"
+        Utils.writeContent(newContent, toFile: Wiki.Constants.LOGFILE)
+    }
+    
+    public static func readFromLog() -> [String] {
+        return Utils.readFile(file: Wiki.Constants.LOGFILE)
     }
     
     public static func readFile(file: String) -> [String] {
