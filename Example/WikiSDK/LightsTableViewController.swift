@@ -63,6 +63,7 @@ class LightsTableViewController: UITableViewController {
         let wikicontroller = WikiController(server: server)
         wikicontroller.download { [weak self] leds in
             DispatchQueue.main.async {
+                Utils.writeToLog("Download leds from WikiController")
                 AppDelegate.house.led = leds
                 Utils.saveLeds(AppDelegate.house.led, inFile: Wiki.Constants.DBFILE)
                 self?.tableView.reloadData()
@@ -76,8 +77,10 @@ class LightsTableViewController: UITableViewController {
         wikicontroller.upload(leds: AppDelegate.house.led) { [weak self] response in
             DispatchQueue.main.async {
                 if response {
+                    Utils.writeToLog("Upload leds to WikiController --> response OK")
                     self?.showToast(message: "OK")
                 } else {
+                    Utils.writeToLog("Upload leds to WikiController --> response ERRORE")
                     self?.showToast(message: "ERRORE")
                 }
             }

@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         AppDelegate.house.led = Utils.readLeds(file: Wiki.Constants.DBFILE)
         Utils.writeToLog("application start")
-        _ = Utils.readFromLog()
         return true
     }
 
