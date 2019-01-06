@@ -45,5 +45,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Il microfono verrà usato per mandare i comandi a WikiServer.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Il riconoscimento vocale verrà usato per capire quello che l&apos;utente chiede.</string>
 </dict>
 </plist>
