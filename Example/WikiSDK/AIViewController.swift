@@ -27,6 +27,7 @@ class AIViewController: UIViewController {
         super.viewDidLoad()
         
         microphoneButton.isEnabled = false
+        self.title = "Wiki AI"
         
         speechRecognizer.delegate = self as? SFSpeechRecognizerDelegate
         
