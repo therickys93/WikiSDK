@@ -29,6 +29,17 @@ class AIViewController: UIViewController {
         microphoneButton.isEnabled = false
         self.title = Wiki.Controllers.WikiServer.TITLE
         
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = self.view.bounds
+        gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
+        // gradient.startPoint = CGPoint(x: self.view.frame.width, y: 0)
+        // gradient.endPoint = CGPoint(x: 0, y: self.view.frame.height)
+        gradient.startPoint = CGPoint(x: 1, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        
+        self.view.layer.insertSublayer(gradient, at: 0)
+        
         speechRecognizer.delegate = self as? SFSpeechRecognizerDelegate
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
@@ -78,10 +89,10 @@ class AIViewController: UIViewController {
             }
             
             microphoneButton.isEnabled = false
-            microphoneButton.setTitle("Start Recording", for: .normal)
+            // microphoneButton.setTitle("Start Recording", for: .normal)
         } else {
             startRecording()
-            microphoneButton.setTitle("Stop Recording", for: .normal)
+            // microphoneButton.setTitle("Stop Recording", for: .normal)
         }
     }
     
