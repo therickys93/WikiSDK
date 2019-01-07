@@ -98,14 +98,14 @@ class AIViewController: UIViewController {
             let confirmAction = UIAlertAction(title: "Insert", style: .default) { (_) in
                 if let url = alertController.textFields?[0].text {
                     // save the url
-                    self.saveWikiServerURL(url)
+                    Utils.saveWikiServerURL(url)
                 }
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
             alertController.addTextField { (textField) in
                 textField.placeholder = "Insert the URL"
-                textField.text = self.loadWikiServerURL()
+                textField.text = Utils.loadWikiServerURL()
             }
             
             alertController.addAction(confirmAction)
@@ -113,24 +113,12 @@ class AIViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
     }
-    
-    struct Defines {
-        static let KEY = "KEY"
-    }
-    
-    private func saveWikiServerURL(_ url: String) {
-        UserDefaults.standard.set(url, forKey: Defines.KEY)
-    }
-    
-    private func loadWikiServerURL() -> String {
-        return UserDefaults.standard.string(forKey: Defines.KEY) ?? "http://192.168.15.15:8080/v1/wiki"
-    }
-    
+        
     private func makeWikiServerRequest(_ request: String, completionHandler handler: @escaping (String) -> Void) {
         let json: [String: Any] = ["request": request]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         // create post request
-        let url = URL(string: loadWikiServerURL())!
+        let url = URL(string: Utils.loadWikiServerURL())!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
