@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zKD-AK-wiF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zKD-AK-wiF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="32"/>
+            <point key="canvasLocation" x="1729" y="-185"/>
         </scene>
         <!--Wiki-->
         <scene sceneID="3SO-3Y-rxH">
@@ -170,7 +170,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hD6-sV-4PF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922" y="32"/>
+            <point key="canvasLocation" x="921" y="-184"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="epu-6Z-9wq">
@@ -184,6 +184,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="hEf-5z-fCX" kind="relationship" relationship="viewControllers" id="rDM-Gj-YjM"/>
+                        <segue destination="HsZ-dB-PHZ" kind="relationship" relationship="viewControllers" id="ZyZ-nq-b52"/>
                         <segue destination="tHI-d4-81A" kind="relationship" relationship="viewControllers" id="O7b-QV-WyG"/>
                     </connections>
                 </tabBarController>
@@ -280,7 +281,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0w3-iH-3xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757.5999999999999" y="760.56971514242889"/>
+            <point key="canvasLocation" x="1729" y="1181"/>
         </scene>
         <!--Configura Casa-->
         <scene sceneID="I0f-dh-5uP">
@@ -299,13 +300,99 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vR-Oy-2Fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="761"/>
+            <point key="canvasLocation" x="921" y="1181"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LYW-Rn-27B">
+            <objects>
+                <viewController id="TzX-Wg-R5t" customClass="AIViewController" customModule="WikiSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jG7-nb-PiS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wly-Ce-96i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vxS-Jd-IPh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="AYx-xV-tWu">
+                                <rect key="frame" x="16" y="72" width="343" height="147"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="147" id="7pe-Ks-RWV"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d8E-7h-2gF">
+                                <rect key="frame" x="16" y="227" width="343" height="275"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhw-0k-Da1">
+                                <rect key="frame" x="137" y="510" width="101" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="101" id="ZbD-gS-iri"/>
+                                </constraints>
+                                <state key="normal" image="MIc"/>
+                                <connections>
+                                    <action selector="microphoneTapped:" destination="TzX-Wg-R5t" eventType="touchUpInside" id="Xb0-AV-Nnm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="d8E-7h-2gF" firstAttribute="leading" secondItem="vxS-Jd-IPh" secondAttribute="leading" constant="16" id="06c-Kd-QyN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AYx-xV-tWu" secondAttribute="trailing" id="DrZ-9F-Uev"/>
+                            <constraint firstItem="uhw-0k-Da1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vxS-Jd-IPh" secondAttribute="leading" constant="20" symbolic="YES" id="Fjh-Qn-w9C"/>
+                            <constraint firstItem="d8E-7h-2gF" firstAttribute="top" secondItem="AYx-xV-tWu" secondAttribute="bottom" constant="8" id="Hue-gI-D63"/>
+                            <constraint firstItem="Wly-Ce-96i" firstAttribute="top" secondItem="d8E-7h-2gF" secondAttribute="bottom" constant="116" id="Rtk-aE-ZGF"/>
+                            <constraint firstAttribute="trailing" secondItem="d8E-7h-2gF" secondAttribute="trailing" constant="16" id="SDw-4t-KRs"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="AYx-xV-tWu" secondAttribute="leading" id="aHO-hQ-CvI"/>
+                            <constraint firstItem="AYx-xV-tWu" firstAttribute="top" secondItem="jG7-nb-PiS" secondAttribute="bottom" constant="8" symbolic="YES" id="eCg-Z0-lxR"/>
+                            <constraint firstAttribute="trailing" secondItem="uhw-0k-Da1" secondAttribute="trailing" constant="137" id="ijY-8l-y4Y"/>
+                            <constraint firstItem="uhw-0k-Da1" firstAttribute="top" secondItem="d8E-7h-2gF" secondAttribute="bottom" constant="8" symbolic="YES" id="l61-QV-fLh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hwe-dx-EMX"/>
+                    <connections>
+                        <outlet property="microphoneButton" destination="uhw-0k-Da1" id="ycc-Dp-Hbk"/>
+                        <outlet property="responseTextView" destination="d8E-7h-2gF" id="ZjS-pT-o9r"/>
+                        <outlet property="textView" destination="AYx-xV-tWu" id="hGg-z1-UrJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXj-jg-eoQ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728.8" y="500.59970014992507"/>
+        </scene>
+        <!--WIki AI-->
+        <scene sceneID="oNv-gl-DzM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HsZ-dB-PHZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="WIki AI" image="ico_mic_small" id="7Zn-y9-efP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2M2-kc-i4W">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TzX-Wg-R5t" kind="relationship" relationship="rootViewController" id="Kse-ou-64q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fiX-Hu-uzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="501"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ConfigureHouse" width="30" height="30"/>
-        <image name="Download" width="30" height="30"/>
-        <image name="Upload" width="30" height="30"/>
-        <image name="Wiki" width="30" height="30"/>
+        <image name="ConfigureHouse" width="22.5" height="22.5"/>
+        <image name="Download" width="22.5" height="22.5"/>
+        <image name="MIc" width="100" height="100"/>
+        <image name="Upload" width="22.5" height="22.5"/>
+        <image name="Wiki" width="22.5" height="22.5"/>
+        <image name="ico_mic_small" width="30" height="30"/>
     </resources>
 </document>
