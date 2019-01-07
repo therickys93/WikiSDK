@@ -374,11 +374,11 @@
             </objects>
             <point key="canvasLocation" x="1729" y="501"/>
         </scene>
-        <!--AI-->
+        <!--WIki AI-->
         <scene sceneID="oNv-gl-DzM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HsZ-dB-PHZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="AI" id="7Zn-y9-efP"/>
+                    <tabBarItem key="tabBarItem" title="WIki AI" id="7Zn-y9-efP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2M2-kc-i4W">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
