@@ -28,9 +28,11 @@ struct Wiki {
             static let CELL_REUSE_IDENTIFIER = "CellReuseIdentifier"
         }
         struct WikiServer {
-            static let TITLE       = "Wiki AI"
-            static let DEFAULT_URL = "http://server.wiki.home/v1/wiki"
-            static let DEFAULT_KEY = "WIKISERVER_URL"
+            static let TITLE              = "Wiki AI"
+            static let DEFAULT_URL_VALUE  = "http://server.wiki.home/v1/wiki"
+            static let DEFAULT_URL_KEY    = "WIKISERVER_URL"
+            static let DEFAULT_USER_KEY   = "WIKISERVER_USER"
+            static let DEFAULT_USER_VALUE = "therickys93"
         }
     }
 }
