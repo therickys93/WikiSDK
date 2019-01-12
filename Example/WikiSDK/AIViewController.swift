@@ -107,9 +107,11 @@ class AIViewController: UIViewController {
             let alertController = UIAlertController(title: "WikiServer URL", message: "Insert WikiServer URL", preferredStyle: .alert)
             
             let confirmAction = UIAlertAction(title: "Insert", style: .default) { (_) in
-                if let url = alertController.textFields?[0].text {
+                if let url = alertController.textFields?[0].text,
+                    let user = alertController.textFields?[1].text {
                     // save the url
                     Utils.saveWikiServerURL(url)
+                    Utils.saveWikiServerUser(user)
                 }
             }
             
@@ -119,6 +121,11 @@ class AIViewController: UIViewController {
                 textField.text = Utils.loadWikiServerURL()
             }
             
+            alertController.addTextField { (textField) in
+                textField.placeholder = "Insert User"
+                textField.text = Utils.loadWikiServerUser()
+            }
+            
             alertController.addAction(confirmAction)
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true, completion: nil)
@@ -126,7 +133,7 @@ class AIViewController: UIViewController {
     }
         
     private func makeWikiServerRequest(_ request: String, completionHandler handler: @escaping (String) -> Void) {
-        let json: [String: Any] = ["request": request]
+        let json: [String: Any] = ["request": request, "user_id": Utils.loadWikiServerUser()]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         // create post request
         let url = URL(string: Utils.loadWikiServerURL())!

@@ -78,12 +78,21 @@ public class Utils {
     }
     
     public static func saveWikiServerURL(_ url: String) {
-        UserDefaults.standard.set(url, forKey: Wiki.Controllers.WikiServer.DEFAULT_KEY)
+        UserDefaults.standard.set(url, forKey: Wiki.Controllers.WikiServer.DEFAULT_URL_KEY)
     }
     
     public static func loadWikiServerURL() -> String {
-        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiServer.DEFAULT_KEY) ??
-            Wiki.Controllers.WikiServer.DEFAULT_URL
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiServer.DEFAULT_URL_KEY) ??
+            Wiki.Controllers.WikiServer.DEFAULT_URL_VALUE
+    }
+    
+    public static func saveWikiServerUser(_ user: String) {
+        UserDefaults.standard.set(user, forKey: Wiki.Controllers.WikiServer.DEFAULT_USER_KEY)
+    }
+    
+    public static func loadWikiServerUser() -> String {
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiServer.DEFAULT_USER_KEY) ??
+            Wiki.Controllers.WikiServer.DEFAULT_USER_VALUE
     }
 
 }
