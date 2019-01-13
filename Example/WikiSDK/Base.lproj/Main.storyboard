@@ -356,7 +356,13 @@
                             <constraint firstItem="uhw-0k-Da1" firstAttribute="top" secondItem="d8E-7h-2gF" secondAttribute="bottom" constant="8" symbolic="YES" id="l61-QV-fLh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hwe-dx-EMX"/>
+                    <navigationItem key="navigationItem" id="hwe-dx-EMX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="o4e-RI-DJE">
+                            <connections>
+                                <action selector="composeButtonPressed:" destination="TzX-Wg-R5t" id="wYp-or-XaB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="microphoneButton" destination="uhw-0k-Da1" id="ycc-Dp-Hbk"/>
                         <outlet property="responseTextView" destination="d8E-7h-2gF" id="ZjS-pT-o9r"/>

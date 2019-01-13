@@ -104,9 +104,9 @@ class AIViewController: UIViewController {
             // display the alertview
             // save the string
             // get the string to save
-            let alertController = UIAlertController(title: "WikiServer URL", message: "Insert WikiServer URL", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "WikiServer URL", message: "Inserisci WikiServer URL", preferredStyle: .alert)
             
-            let confirmAction = UIAlertAction(title: "Insert", style: .default) { (_) in
+            let confirmAction = UIAlertAction(title: "Inserisci", style: .default) { (_) in
                 if let url = alertController.textFields?[0].text,
                     let user = alertController.textFields?[1].text {
                     // save the url
@@ -117,12 +117,12 @@ class AIViewController: UIViewController {
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
             alertController.addTextField { (textField) in
-                textField.placeholder = "Insert the URL"
+                textField.placeholder = "Inserisci la URL"
                 textField.text = Utils.loadWikiServerURL()
             }
             
             alertController.addTextField { (textField) in
-                textField.placeholder = "Insert User"
+                textField.placeholder = "Inserisci l'utente"
                 textField.text = Utils.loadWikiServerUser()
             }
             
@@ -158,6 +158,36 @@ class AIViewController: UIViewController {
     @IBAction func microphoneTapped(_ sender: AnyObject) {
         // old button function
     }
+    
+    @IBAction func composeButtonPressed(_ sender: UIBarButtonItem) {
+        // pressing this button create a uialertviewcontroller
+        // type the text and send it to wikiserver
+        let alertController = UIAlertController(title: "Richiesta WikiServer", message: "Inserisci la tua richiesta", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Invia", style: .default) { (_) in
+            if let request = alertController.textFields?[0].text {
+                // send the request
+                self.textView.text = request
+                self.makeWikiServerRequest(request) { [weak self] resultString in
+                    DispatchQueue.main.async {
+                        self?.textToSpeech(resultString)
+                        self?.responseTextView.text = resultString
+                    }
+                }
+
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Annulla", style: .cancel) { (_) in }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Inserisci richiesta qui"
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     private func textToSpeech(_ toSay: String)
     {
