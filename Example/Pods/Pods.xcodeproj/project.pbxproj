@@ -24,6 +24,8 @@
 		9CAB8F0321723E2D007FA769 /* Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0021723E2D007FA769 /* Sendable.swift */; };
 		9CAB8F0421723E2D007FA769 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0121723E2D007FA769 /* Home.swift */; };
 		9CAB8F0521723E2D007FA769 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAB8F0121723E2D007FA769 /* Home.swift */; };
+		9CBF666A21ED07DF0072D56C /* InitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF666921ED07DF0072D56C /* InitKey.swift */; };
+		9CBF666B21ED09580072D56C /* InitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF666921ED07DF0072D56C /* InitKey.swift */; };
 		9CFD44C22174E97F0054BC60 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BC2174E97E0054BC60 /* Reset.swift */; };
 		9CFD44C32174E97F0054BC60 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BC2174E97E0054BC60 /* Reset.swift */; };
 		9CFD44C42174E97F0054BC60 /* Off.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BD2174E97F0054BC60 /* Off.swift */; };
@@ -89,6 +91,7 @@
 		9C2A6A1A21766E8C0026DC27 /* Upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = WikiSDK/Classes/controller/Upload.swift; sourceTree = "<group>"; };
 		9CAB8F0021723E2D007FA769 /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sendable.swift; path = WikiSDK/Classes/controller/Sendable.swift; sourceTree = "<group>"; };
 		9CAB8F0121723E2D007FA769 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = WikiSDK/Classes/controller/Home.swift; sourceTree = "<group>"; };
+		9CBF666921ED07DF0072D56C /* InitKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitKey.swift; path = WikiSDK/Classes/controller/InitKey.swift; sourceTree = "<group>"; };
 		9CFD44BC2174E97E0054BC60 /* Reset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reset.swift; path = WikiSDK/Classes/controller/Reset.swift; sourceTree = "<group>"; };
 		9CFD44BD2174E97F0054BC60 /* Off.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Off.swift; path = WikiSDK/Classes/controller/Off.swift; sourceTree = "<group>"; };
 		9CFD44BE2174E97F0054BC60 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = WikiSDK/Classes/controller/Status.swift; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 				9CAB8F0021723E2D007FA769 /* Sendable.swift */,
 				9C2A6A1721765F6B0026DC27 /* Download.swift */,
 				9C2A6A1A21766E8C0026DC27 /* Upload.swift */,
+				9CBF666921ED07DF0072D56C /* InitKey.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -456,6 +460,7 @@
 				9C2A6A1B21766E8C0026DC27 /* Upload.swift in Sources */,
 				9CAB8F0221723E2D007FA769 /* Sendable.swift in Sources */,
 				9CFD44CA2174E97F0054BC60 /* On.swift in Sources */,
+				9CBF666A21ED07DF0072D56C /* InitKey.swift in Sources */,
 				9CFD44C22174E97F0054BC60 /* Reset.swift in Sources */,
 				9C2A6A1821765F6B0026DC27 /* Download.swift in Sources */,
 				9C2A6A112176499E0026DC27 /* House.swift in Sources */,
@@ -467,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBF666B21ED09580072D56C /* InitKey.swift in Sources */,
 				9CFD44C52174E97F0054BC60 /* Off.swift in Sources */,
 				AB18A3166F99B8DF017D06EFF3E8F553 /* WikiSDK-dummy.m in Sources */,
 				9CFD44C72174E97F0054BC60 /* Status.swift in Sources */,

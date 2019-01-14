@@ -69,6 +69,16 @@ public class WikiController {
         }
     }
     
+    public func initKey(key: String, completionHandler handler: @escaping (Bool) -> Void){
+        self.execute(sendable: InitKey(key: key)) { response in
+            if response.contains("true") {
+                handler(true)
+            } else {
+                handler(false)
+            }
+        }
+    }
+    
     public func status(key: String, completionHandler handler: @escaping (String) -> Void) {
         self.execute(sendable: Status(key: key)) { response in
             handler(response)
