@@ -109,6 +109,19 @@ class LightsTableViewController: UITableViewController {
                     self.present(alertController2, animated: true, completion: nil)
                 }
                 Utils.saveLeds(AppDelegate.house.led, inFile: Wiki.Constants.DBFILE)
+                
+                // init the new key
+                let server = Utils.loadWikiControllerURL()
+                let wikicontroller = WikiController(server: server)
+                wikicontroller.initKey(key: key) { response in
+                    DispatchQueue.main.async {
+                        if response {
+                            Utils.writeToLog("init key: \(key) --> response OK")
+                        } else {
+                            Utils.writeToLog("init key: \(key) --> response ERRORE")
+                        }
+                    }
+                }
                 self.tableView.reloadData()
             }
         }
