@@ -1,15 +1,17 @@
-# references:
-# * https://www.objc.io/issues/6-build-tools/travis-ci/
-# * https://github.com/supermarin/xcpretty#usage
-
 osx_image: xcode10
 language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild build -workspace Example/WikiSDK.xcworkspace -scheme WikiSDK-Example -sdk iphonesimulator12.0 ONLY_ACTIVE_ARCH=NO | xcpretty
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/WikiSDK.xcworkspace -scheme WikiSDK-Example -sdk iphonesimulator12.0 ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild build -workspace Example/WikiSDK.xcworkspace -scheme
+  WikiSDK-Example -sdk iphonesimulator12.0 ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/WikiSDK.xcworkspace
+  -scheme WikiSDK-Example -sdk iphonesimulator12.0 ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
+after_success:
+-sh set_tags.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: hF1U+pHFJJxtskzSn0WTMC2T8K+CfXtQQIx8o5xVgUCNDQBf8NVYClv0G9I0WM+5in6JPV0wXkAbAodBf+r9s8AOYNIYywCn2yGW1ICEY8GA9NCEsyQ7jGDeGQeZjnTVO3Myot2BWyM9BJ4LtlL0C65O1lTu/5/qYbCYteOMlvjuADOJVOF0z2gB9NbCtCzInwpwtIYoSBPdFKi+xASUyNSX1noPDlTVTSeSsXeVhV3ad1cOo/wb7AxWEoXkq4VzVP6PJobuXKgFpKb2bP3NvzHAOXsW5ydks2h7/W7FVEDU+puvyF1692E3L2Qp+IU3p4mVZQcdwfNAnOQDY2BPSW5LbbwkutM/SqsSjPXwa4O7b9cRqAMLr3KFiZx81ue7+rzD2oRCG2/TzoxsSJc4nxL+JEoMx4jqJDnXryAa01gSbZ8R//jMZFkaT+corb4Uz2adImo7eTVVE9fzNvOIN/2+N/z9mRvye8uaEVqGR0knNTjICfK6mUzxtMVJ3di+8mRVxovKDh4elvEUsDYNfiqm3PqBJ4FRYjWKY+8KNKcPINioS6B4R1s3Bv5KLqNdLSwZMxHi6jY0YHSViZ/zGdbpgMveGL3xx+w7cIDFYgO5yxpTfqlInAewaVckxEM2/PClHuu0YwnPDp5gspmmXtuwk+p7TRgr8c35lc+xpIQ=
+  on:
+    repo: therickys93/WikiSDK
+    branch: master
