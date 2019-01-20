@@ -333,9 +333,6 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhw-0k-Da1">
                                 <rect key="frame" x="137" y="510" width="101" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="101" id="ZbD-gS-iri"/>
-                                </constraints>
                                 <state key="normal" image="MIc"/>
                                 <connections>
                                     <action selector="microphoneTapped:" destination="TzX-Wg-R5t" eventType="touchUpInside" id="Xb0-AV-Nnm"/>
@@ -346,13 +343,14 @@
                         <constraints>
                             <constraint firstItem="d8E-7h-2gF" firstAttribute="leading" secondItem="vxS-Jd-IPh" secondAttribute="leading" constant="16" id="06c-Kd-QyN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AYx-xV-tWu" secondAttribute="trailing" id="DrZ-9F-Uev"/>
-                            <constraint firstItem="uhw-0k-Da1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vxS-Jd-IPh" secondAttribute="leading" constant="20" symbolic="YES" id="Fjh-Qn-w9C"/>
                             <constraint firstItem="d8E-7h-2gF" firstAttribute="top" secondItem="AYx-xV-tWu" secondAttribute="bottom" constant="8" id="Hue-gI-D63"/>
+                            <constraint firstAttribute="trailing" secondItem="uhw-0k-Da1" secondAttribute="trailing" constant="137" id="Jjv-WP-8Ct"/>
                             <constraint firstItem="Wly-Ce-96i" firstAttribute="top" secondItem="d8E-7h-2gF" secondAttribute="bottom" constant="116" id="Rtk-aE-ZGF"/>
                             <constraint firstAttribute="trailing" secondItem="d8E-7h-2gF" secondAttribute="trailing" constant="16" id="SDw-4t-KRs"/>
                             <constraint firstAttribute="leadingMargin" secondItem="AYx-xV-tWu" secondAttribute="leading" id="aHO-hQ-CvI"/>
+                            <constraint firstItem="uhw-0k-Da1" firstAttribute="leading" secondItem="vxS-Jd-IPh" secondAttribute="leading" constant="137" id="dud-dW-Ppl"/>
                             <constraint firstItem="AYx-xV-tWu" firstAttribute="top" secondItem="jG7-nb-PiS" secondAttribute="bottom" constant="8" symbolic="YES" id="eCg-Z0-lxR"/>
-                            <constraint firstAttribute="trailing" secondItem="uhw-0k-Da1" secondAttribute="trailing" constant="137" id="ijY-8l-y4Y"/>
+                            <constraint firstItem="Wly-Ce-96i" firstAttribute="top" secondItem="uhw-0k-Da1" secondAttribute="bottom" constant="8" id="i1X-gp-qVA"/>
                             <constraint firstItem="uhw-0k-Da1" firstAttribute="top" secondItem="d8E-7h-2gF" secondAttribute="bottom" constant="8" symbolic="YES" id="l61-QV-fLh"/>
                         </constraints>
                     </view>

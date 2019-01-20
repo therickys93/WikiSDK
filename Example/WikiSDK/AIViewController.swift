@@ -23,22 +23,22 @@ class AIViewController: UIViewController {
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
+    let gradientLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
+        layer.startPoint = CGPoint(x: 1, y: 0)
+        layer.endPoint = CGPoint(x: 0, y: 1)
+        return layer
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         microphoneButton.isEnabled = false
         self.title = Wiki.Controllers.WikiServer.TITLE
         
-        let gradient = CAGradientLayer()
-        
-        gradient.frame = self.view.bounds
-        gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
-        // gradient.startPoint = CGPoint(x: self.view.frame.width, y: 0)
-        // gradient.endPoint = CGPoint(x: 0, y: self.view.frame.height)
-        gradient.startPoint = CGPoint(x: 1, y: 0)
-        gradient.endPoint = CGPoint(x: 0, y: 1)
-        
-        self.view.layer.insertSublayer(gradient, at: 0)
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        self.gradientLayer.frame = self.view.bounds
         
         speechRecognizer.delegate = self as? SFSpeechRecognizerDelegate
         
@@ -74,6 +74,12 @@ class AIViewController: UIViewController {
                 self.microphoneButton.isEnabled = isButtonEnabled
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.gradientLayer.frame = self.view.bounds
     }
     
     @objc func normalTap(_ sender: UIGestureRecognizer){
