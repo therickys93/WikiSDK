@@ -21,17 +21,21 @@ public class Utils {
         return ""
     }
     
-    public static func writeContent(_ content: String, toFile file: String) {
+    public static func writeContent(_ content: String, toFile file: String, appending append: Bool) {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appendingPathComponent(file)
-            if FileManager.default.fileExists(atPath: fileURL.path){
-                do {
-                    let fileHandle = try FileHandle(forWritingTo: fileURL)
-                    fileHandle.seekToEndOfFile()
-                    fileHandle.write(content.data(using: .utf8, allowLossyConversion: false)!)
-                    fileHandle.closeFile()
-                } catch {
-                    print("Error writing to File")
+            if append {
+                if FileManager.default.fileExists(atPath: fileURL.path){
+                    do {
+                        let fileHandle = try FileHandle(forWritingTo: fileURL)
+                        fileHandle.seekToEndOfFile()
+                        fileHandle.write(content.data(using: .utf8, allowLossyConversion: false)!)
+                        fileHandle.closeFile()
+                    } catch {
+                        print("Error writing to File")
+                    }
+                } else {
+                    try? content.write(to: fileURL, atomically: true, encoding: .utf8)
                 }
             } else {
                 try? content.write(to: fileURL, atomically: true, encoding: .utf8)
@@ -48,7 +52,7 @@ public class Utils {
     
     public static func writeToLog(_ content: String){
         let newContent = "[\(timestamp())] \(content)\r\n"
-        Utils.writeContent(newContent, toFile: Wiki.Constants.LOGFILE)
+        Utils.writeContent(newContent, toFile: Wiki.Constants.LOGFILE, appending: true)
     }
     
     public static func readFromLog() -> [String] {
@@ -66,7 +70,7 @@ public class Utils {
     
     public static func saveLeds(_ leds: [Led], inFile file: String) {
         let content = WikiController.createStringFromLeds(leds)
-        Utils.writeContent(content, toFile: file)
+        Utils.writeContent(content, toFile: file, appending: false)
     }
     
     public static func saveWikiControllerURL(_ url: String) {
