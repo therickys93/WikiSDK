@@ -17,10 +17,14 @@ public class WikiController {
     
     public static func createStringFromLeds(_ leds: [Led]) -> String {
         var json = "["
+        var remove = false
         for led in leds {
             json += "{\"name\": \"\(led.name)\", \"key\": \"\(led.key)\", \"position\":\(led.position)},"
+            remove = true
         }
-        json.remove(at: json.index(before: json.endIndex))
+        if remove {
+            json.remove(at: json.index(before: json.endIndex))
+        }
         json += "]"
         return json
     }
