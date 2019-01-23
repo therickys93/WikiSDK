@@ -253,6 +253,28 @@
                                     <outlet property="positionLabel" destination="wjV-ye-jZN" id="cjh-Dh-EWR"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoLightsFound" id="NmK-fQ-sR6">
+                                <rect key="frame" x="0.0" y="108" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NmK-fQ-sR6" id="XS9-qo-EG7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nessun accessorio trovato" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZ8-V1-Oto">
+                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kZ8-V1-Oto" firstAttribute="leading" secondItem="XS9-qo-EG7" secondAttribute="leading" constant="16" id="3rk-8J-XX7"/>
+                                        <constraint firstAttribute="trailing" secondItem="kZ8-V1-Oto" secondAttribute="trailing" constant="16" id="LsC-Ti-ZGe"/>
+                                        <constraint firstItem="kZ8-V1-Oto" firstAttribute="top" secondItem="XS9-qo-EG7" secondAttribute="top" constant="11" id="cs7-5D-bmJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="kZ8-V1-Oto" secondAttribute="bottom" constant="11.5" id="pPE-hJ-iwi"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="IXC-0L-RVf" id="cvD-Gh-sFN"/>
@@ -281,7 +303,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0w3-iH-3xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="1182"/>
+            <point key="canvasLocation" x="1728.8" y="1181.5592203898052"/>
         </scene>
         <!--Configura Casa-->
         <scene sceneID="I0f-dh-5uP">

@@ -31,7 +31,7 @@ class LightsTableViewController: UITableViewController {
         if AppDelegate.house.ledCount() > 0 {
             return AppDelegate.house.ledCount()
         } else {
-            return 0
+            return 1
         }
     }
     
@@ -40,21 +40,35 @@ class LightsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Wiki.Controllers.LightsController.CELL_REUSE_IDENTIFIER, for: indexPath)
-
-        // Configure the cell...
-        if let ledCell = cell as? LightTableViewCell {
-            ledCell.led = getLedAt(indexPath: indexPath)
-        }
         
-        return cell
+        if AppDelegate.house.ledCount() > 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Wiki.Controllers.LightsController.CELL_REUSE_IDENTIFIER, for: indexPath)
+
+            // Configure the cell...
+            if let ledCell = cell as? LightTableViewCell {
+                ledCell.led = getLedAt(indexPath: indexPath)
+            }
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NoLightsFound", for: indexPath)
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if AppDelegate.house.ledCount() > 0 {
+            return .delete
+        } else {
+            return .none
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        if editingStyle == .delete && AppDelegate.house.ledCount() > 0 {
             AppDelegate.house.removeLedAt(indexPath.row)
             Utils.saveLeds(AppDelegate.house.led, inFile: Wiki.Constants.DBFILE)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadData()
         }
     }
     
