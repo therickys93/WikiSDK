@@ -29,8 +29,10 @@ class LightsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if AppDelegate.house.ledCount() > 0 {
+            tableView.separatorStyle = .singleLine
             return AppDelegate.house.ledCount()
         } else {
+            tableView.separatorStyle = .none
             return 1
         }
     }
