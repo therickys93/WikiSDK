@@ -186,6 +186,7 @@
                         <segue destination="HsZ-dB-PHZ" kind="relationship" relationship="viewControllers" id="x2v-8J-2Uz"/>
                         <segue destination="hEf-5z-fCX" kind="relationship" relationship="viewControllers" id="Ffo-8W-b2W"/>
                         <segue destination="tHI-d4-81A" kind="relationship" relationship="viewControllers" id="oAr-uG-E0a"/>
+                        <segue destination="v6s-4c-6bd" kind="relationship" relationship="viewControllers" id="kCG-Ak-YJT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzF-gg-Ouj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,6 +306,94 @@
             </objects>
             <point key="canvasLocation" x="1728.8" y="1181.5592203898052"/>
         </scene>
+        <!--Macro Table View Controller-->
+        <scene sceneID="Pk3-N6-CKR">
+            <objects>
+                <tableViewController id="Auq-6r-e0R" customClass="MacroTableViewController" customModule="WikiSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bft-mp-oW6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MacroIdentifier" rowHeight="58" id="dIT-Ph-Rdz" customClass="MacroTableViewCell" customModule="WikiSDK_Example" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dIT-Ph-Rdz" id="Wq7-i1-XvZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9xI-sB-Nrw">
+                                            <rect key="frame" x="16" y="11" width="339" height="39"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3u-a3-1Pv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170.5" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9b-iA-OeH">
+                                                    <rect key="frame" x="178.5" y="0.0" width="160.5" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <state key="normal" title="Avvia"/>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="9xI-sB-Nrw" secondAttribute="bottom" constant="7.5" id="Pu7-HF-fYS"/>
+                                        <constraint firstAttribute="trailing" secondItem="9xI-sB-Nrw" secondAttribute="trailing" constant="20" symbolic="YES" id="cOA-Ov-ub6"/>
+                                        <constraint firstItem="9xI-sB-Nrw" firstAttribute="top" secondItem="Wq7-i1-XvZ" secondAttribute="top" constant="11" id="ndM-Ow-p4r"/>
+                                        <constraint firstItem="9xI-sB-Nrw" firstAttribute="leading" secondItem="Wq7-i1-XvZ" secondAttribute="leading" constant="16" id="rHf-8Z-qeI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="macroName" destination="b3u-a3-1Pv" id="WyL-De-xAp"/>
+                                    <segue destination="aCi-kk-vRR" kind="presentation" identifier="Macro Segue" id="EPW-Jq-F1r"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Auq-6r-e0R" id="XsM-Ey-dec"/>
+                            <outlet property="delegate" destination="Auq-6r-e0R" id="b5e-sv-6yA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZR2-qX-vK8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lJ1-qw-YMn">
+                            <connections>
+                                <segue destination="aCi-kk-vRR" kind="presentation" identifier="Macro Segue" id="hbx-lX-Kpn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ASk-mK-MEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728.8" y="1857.1214392803599"/>
+        </scene>
+        <!--Edit Macro View Controller-->
+        <scene sceneID="gq7-08-so3">
+            <objects>
+                <viewController id="gFL-X3-CaS" customClass="EditMacroViewController" customModule="WikiSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xAj-43-Fjp"/>
+                        <viewControllerLayoutGuide type="bottom" id="nWh-zz-mW5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vmz-Io-oin">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T8Q-mM-zyO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7bc-od-72i">
+                            <connections>
+                                <action selector="cancelAction:" destination="gFL-X3-CaS" id="Ew4-8U-tJ3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kFP-Lo-1Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3506" y="1857"/>
+        </scene>
         <!--Configura Casa-->
         <scene sceneID="I0f-dh-5uP">
             <objects>
@@ -412,6 +501,43 @@
             </objects>
             <point key="canvasLocation" x="921" y="-188"/>
         </scene>
+        <!--Macro-->
+        <scene sceneID="oQa-iF-LSq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v6s-4c-6bd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Macro" id="Rfk-Lw-Wre"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F2m-qc-zZ0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Auq-6r-e0R" kind="relationship" relationship="rootViewController" id="szv-Qd-9Iw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHn-Kc-pn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="1858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xfc-7D-QVX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aCi-kk-vRR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q3u-aM-6n1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gFL-X3-CaS" kind="relationship" relationship="rootViewController" id="szH-m1-9mo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2v6-60-U9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2567" y="1857"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ConfigureHouse" width="22.5" height="22.5"/>
@@ -421,4 +547,7 @@
         <image name="Wiki" width="22.5" height="22.5"/>
         <image name="ico_mic_small" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hbx-lX-Kpn"/>
+    </inferredMetricsTieBreakers>
 </document>
