@@ -15,6 +15,7 @@ class MacroTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Macro"
         
         // init macro accendi tutto
         var commands = [Sendable]()
@@ -54,7 +55,7 @@ class MacroTableViewController: UITableViewController {
         
         // Configure the cell...
         if let macroCell = cell as? MacroTableViewCell {
-            macroCell.name = macros[indexPath.row].name
+            macroCell.macro = macros[indexPath.row]
         }
         return cell
     }
@@ -68,6 +69,7 @@ class MacroTableViewController: UITableViewController {
                 }
             } else if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 if let emvc = segue.destination.contents as? EditMacroViewController {
+                    emvc.macro = macros[indexPath.row]
                     emvc.title = "Edit Macro"
                 }
             }

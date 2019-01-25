@@ -9,16 +9,19 @@
 import UIKit
 
 class EditMacroViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    var macro: Macro? {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    private func updateUI() {
+        
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
     
 }

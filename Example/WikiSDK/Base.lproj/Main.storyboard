@@ -335,6 +335,9 @@
                                                     <rect key="frame" x="178.5" y="0.0" width="160.5" height="39"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <state key="normal" title="Avvia"/>
+                                                    <connections>
+                                                        <action selector="runMacro:" destination="dIT-Ph-Rdz" eventType="touchUpInside" id="Df8-A6-Dpu"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -347,6 +350,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="buttonMacro" destination="G9b-iA-OeH" id="E8p-AJ-o39"/>
                                     <outlet property="macroName" destination="b3u-a3-1Pv" id="WyL-De-xAp"/>
                                     <segue destination="aCi-kk-vRR" kind="presentation" identifier="Macro Segue" id="EPW-Jq-F1r"/>
                                 </connections>
@@ -392,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFP-Lo-1Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3506" y="1857"/>
+            <point key="canvasLocation" x="3504.8000000000002" y="1856.2218890554725"/>
         </scene>
         <!--Configura Casa-->
         <scene sceneID="I0f-dh-5uP">

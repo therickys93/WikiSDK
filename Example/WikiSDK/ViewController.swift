@@ -81,132 +81,40 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             return Wiki.Constants.NO_LIGHTS_FOUND
         }
     }
-    
-    var activityIndicator = UIActivityIndicatorView()
-    var strLabel = UILabel()
-    
-    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-    
-    private func activityIndicator(_ title: String) {
-        strLabel.removeFromSuperview()
-        activityIndicator.removeFromSuperview()
-        effectView.removeFromSuperview()
         
-        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 160, height: 46))
-        strLabel.text = title
-        strLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium)
-        strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
-        
-        effectView.frame = CGRect(x: view.frame.midX - strLabel.frame.width/2, y: view.frame.midY - strLabel.frame.height/2 , width: 160, height: 46)
-        effectView.layer.cornerRadius = 15
-        effectView.layer.masksToBounds = true
-        
-        activityIndicator = UIActivityIndicatorView(style: .white)
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
-        activityIndicator.startAnimating()
-        
-        effectView.contentView.addSubview(activityIndicator)
-        effectView.contentView.addSubview(strLabel)
-        view.addSubview(effectView)
-    }
-    
     @IBAction func switchOn(_ sender: UIButton) {
-        // if let server = self.wikiControllerServerTextField.text {
-        //     let wikicontroller = WikiController(server: server)
-        //     if let led = getLedFromPickerView() {
-        //         wikicontroller.switchOn(led: led) { [weak self] response in
-        //             DispatchQueue.main.async {
-        //                 if response {
-        //                     Utils.writeToLog("Switch on led: \(led.name) --> response OK")
-        //                     self?.showToast(message: "OK")
-        //                 } else {
-        //                     Utils.writeToLog("Switch on led: \(led.name) --> response ERRORE")
-        //                     self?.showToast(message: "ERRORE")
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        
-        activityIndicator("macro...")
-        
-        var commands = [Sendable]()
-        commands.append(On(key: "prova", position: 1))
-        commands.append(On(key: "prova", position: 2))
-        commands.append(On(key: "prova", position: 3))
-        commands.append(On(key: "prova", position: 4))
-        commands.append(On(key: "prova", position: 5))
-        commands.append(On(key: "prova", position: 6))
-        commands.append(On(key: "prova", position: 7))
-        
         if let server = self.wikiControllerServerTextField.text {
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                guard let self = self else {
-                    return
-                }
-                
-                let wikicontroller = WikiController(server: server)
-                for command in commands {
-                    wikicontroller.execute(sendable: command, completionHandler: { response in
-                        // do nothing here
-                    })
-                    sleep(1)
-                }
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.effectView.removeFromSuperview()
-                    self?.showToast(message: "ok")
+            let wikicontroller = WikiController(server: server)
+            if let led = getLedFromPickerView() {
+                wikicontroller.switchOn(led: led) { [weak self] response in
+                    DispatchQueue.main.async {
+                        if response {
+                            Utils.writeToLog("Switch on led: \(led.name) --> response OK")
+                            self?.showToast(message: "OK")
+                        } else {
+                            Utils.writeToLog("Switch on led: \(led.name) --> response ERRORE")
+                            self?.showToast(message: "ERRORE")
+                        }
+                    }
                 }
             }
         }
     }
     
     @IBAction func switchOff(_ sender: UIButton) {
-        // if let server = self.wikiControllerServerTextField.text {
-        //     let wikicontroller = WikiController(server: server)
-        //     if let led = getLedFromPickerView() {
-        //         wikicontroller.switchOff(led: led) { [weak self] response in
-        //             DispatchQueue.main.async {
-        //                 if response {
-        //                     Utils.writeToLog("Switch off led: \(led.name) --> response OK")
-        //                     self?.showToast(message: "OK")
-        //                 } else {
-        //                     Utils.writeToLog("Switch off led: \(led.name) --> response ERROR")
-        //                     self?.showToast(message: "ERRORE")
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        
-        activityIndicator("macro...")
-        
-        var commands = [Sendable]()
-        commands.append(Off(key: "prova", position: 1))
-        commands.append(Off(key: "prova", position: 2))
-        commands.append(Off(key: "prova", position: 3))
-        commands.append(Off(key: "prova", position: 4))
-        commands.append(Off(key: "prova", position: 5))
-        commands.append(Off(key: "prova", position: 6))
-        commands.append(Off(key: "prova", position: 7))
-        
         if let server = self.wikiControllerServerTextField.text {
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                guard let self = self else {
-                    return
-                }
-                
-                let wikicontroller = WikiController(server: server)
-                for command in commands {
-                    wikicontroller.execute(sendable: command, completionHandler: { response in
-                        // do nothing here
-                    })
-                    sleep(1)
-                }
-                
-                DispatchQueue.main.async { [weak self] in
-                    self?.effectView.removeFromSuperview()
-                    self?.showToast(message: "ok")
+            let wikicontroller = WikiController(server: server)
+            if let led = getLedFromPickerView() {
+                wikicontroller.switchOff(led: led) { [weak self] response in
+                    DispatchQueue.main.async {
+                        if response {
+                            Utils.writeToLog("Switch off led: \(led.name) --> response OK")
+                            self?.showToast(message: "OK")
+                        } else {
+                            Utils.writeToLog("Switch off led: \(led.name) --> response ERROR")
+                            self?.showToast(message: "ERRORE")
+                        }
+                    }
                 }
             }
         }
