@@ -11,10 +11,16 @@ public class InitKey: Sendable {
     
     private var _endpoint: String
     private var _method: String
+    private var _led: Led?
+    private var _key: String?
+    private var _position: Int?
     
     public init(key: String) {
         self._endpoint = "/init/\(key)"
         self._method   = "GET"
+        self._key = key
+        self._led = nil
+        self._position = nil
     }
     
     public var endpoint: String {
@@ -34,5 +40,24 @@ public class InitKey: Sendable {
             return nil
         }
     }
+    
+    public var led: Led? {
+        get {
+            return self._led
+        }
+    }
+    
+    public var key: String? {
+        get {
+            return self._key
+        }
+    }
+    
+    public var position: Int? {
+        get {
+            return self._position
+        }
+    }
+
     
 }
