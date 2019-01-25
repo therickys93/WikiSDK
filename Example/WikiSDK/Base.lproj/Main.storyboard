@@ -384,7 +384,64 @@
                     <view key="view" contentMode="scaleToFill" id="vmz-Io-oin">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LCA-Wi-82u">
+                                <rect key="frame" x="20" y="72" width="335" height="587"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glY-gH-cOQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iia-TF-ZDM">
+                                        <rect key="frame" x="0.0" y="30" width="335" height="216"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="wez-bd-FC0">
+                                                <rect key="frame" x="0.0" y="0.0" width="274" height="216"/>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRa-hy-g6T">
+                                                <rect key="frame" x="274" y="0.0" width="61" height="216"/>
+                                                <state key="normal" title="Aggiungi"/>
+                                                <connections>
+                                                    <action selector="addAction:" destination="gFL-X3-CaS" eventType="touchUpInside" id="nJf-dQ-3XI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-p2-Ljn">
+                                        <rect key="frame" x="0.0" y="246" width="335" height="341"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListAction" textLabel="gD8-hm-uE8" style="IBUITableViewCellStyleDefault" id="koA-2K-ogA">
+                                                <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="koA-2K-ogA" id="ekl-OG-T9H">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gD8-hm-uE8">
+                                                            <rect key="frame" x="15" y="0.0" width="305" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LCA-Wi-82u" secondAttribute="trailing" constant="20" symbolic="YES" id="4Zq-jW-0gQ"/>
+                            <constraint firstItem="LCA-Wi-82u" firstAttribute="leading" secondItem="vmz-Io-oin" secondAttribute="leading" constant="20" symbolic="YES" id="CAY-a9-wkx"/>
+                            <constraint firstItem="nWh-zz-mW5" firstAttribute="top" secondItem="LCA-Wi-82u" secondAttribute="bottom" constant="8" symbolic="YES" id="Jnu-Ji-SBz"/>
+                            <constraint firstItem="LCA-Wi-82u" firstAttribute="top" secondItem="xAj-43-Fjp" secondAttribute="bottom" constant="8" symbolic="YES" id="rKm-yG-a75"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T8Q-mM-zyO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7bc-od-72i">
@@ -392,7 +449,17 @@
                                 <action selector="cancelAction:" destination="gFL-X3-CaS" id="Ew4-8U-tJ3"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="f5B-re-RyF">
+                            <connections>
+                                <action selector="save:" destination="gFL-X3-CaS" id="kQq-g1-s6Q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="macroNameTextField" destination="glY-gH-cOQ" id="wxI-kS-spl"/>
+                        <outlet property="pickerView" destination="wez-bd-FC0" id="D1G-Fz-4Nt"/>
+                        <outlet property="tableView" destination="nfd-p2-Ljn" id="QBO-gG-ZD6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFP-Lo-1Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

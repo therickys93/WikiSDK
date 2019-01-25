@@ -8,7 +8,10 @@
 
 import UIKit
 
-class EditMacroViewController: UIViewController {
+class EditMacroViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
+    @IBOutlet weak var macroNameTextField: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var tableView: UITableView!
     
     var macro: Macro? {
         didSet {
@@ -16,12 +19,109 @@ class EditMacroViewController: UIViewController {
         }
     }
     
+    private var pickerData = [String]()
+    private var pickerActions = [String]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateUI()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
+        pickerActions.append("accendi")
+        pickerActions.append("spegni")
+        pickerActions.append("apri")
+        pickerActions.append("chiudi")
+    }
+    
+    private func getAllAccessoriesNames() -> [String] {
+        var names = [String]()
+        for led in AppDelegate.house.led {
+            names.append(led.name)
+        }
+        return names
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.pickerData.removeAll()
+        self.pickerData = getAllAccessoriesNames()
+        self.pickerView.reloadAllComponents()
+    }
+    
     private func updateUI() {
-        
+        self.macroNameTextField?.text = macro?.name
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    // ListAction
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let count = self.macro?.sendable.count {
+            tableView.separatorStyle = .singleLine
+            return count
+        } else {
+            tableView.separatorStyle = .none
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListAction", for: indexPath)
+        cell.textLabel?.text = self.macro?.sendable[indexPath.row].endpoint
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.macro?.sendable.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return self.pickerActions.count
+        } else if component == 1{
+            return self.pickerData.count
+        } else {
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return self.pickerActions[row]
+        } else if component == 1 {
+            if self.pickerData.count > 0 {
+                return self.pickerData[row]
+            } else {
+                return Wiki.Constants.NO_LIGHTS_FOUND
+            }
+        } else {
+            return nil
+        }
+    }
+
+    @IBAction func addAction(_ sender: UIButton) {
+        
+    }
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        // save the macro
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
 }
