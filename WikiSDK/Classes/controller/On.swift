@@ -13,12 +13,14 @@ public class On: Sendable {
     private var _led: Led?
     private var _key: String?
     private var _position: Int?
+    private var _type: String
     
     public init(key: String, position: Int) {
         self._method = "GET"
         self._endpoint = "/on/\(key)/\(position)"
         self._key = key
         self._position = position
+        self._type = "Accendi"
     }
     
     public convenience init(led: Led) {
@@ -61,5 +63,10 @@ public class On: Sendable {
             return self._position
         }
     }
-
+    
+    public var type: String {
+        get {
+            return self._type
+        }
+    }
 }

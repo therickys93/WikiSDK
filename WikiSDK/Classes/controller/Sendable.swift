@@ -14,4 +14,5 @@ public protocol Sendable {
     var led: Led? { get }
     var key: String? { get }
     var position: Int? { get }
+    var type: String { get }
 }

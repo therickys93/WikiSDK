@@ -13,6 +13,7 @@ public class Status: Sendable {
     private var _led: Led?
     private var _key: String?
     private var _position: Int?
+    private var _type: String
     
     public init(key: String) {
         self._endpoint = "/status/\(key)"
@@ -20,6 +21,7 @@ public class Status: Sendable {
         self._key = key
         self._led = nil
         self._position = nil
+        self._type = "Stato"
     }
     
     public var endpoint: String {
@@ -58,5 +60,10 @@ public class Status: Sendable {
         }
     }
 
-    
+    public var type: String {
+        get {
+            return self._type
+        }
+    }
+
 }

@@ -13,6 +13,7 @@ public class Download: Sendable {
     private var _led: Led?
     private var _key: String?
     private var _position: Int?
+    private var _type: String
     
     public init() {
         self._method = "GET"
@@ -20,6 +21,7 @@ public class Download: Sendable {
         self._led = nil
         self._key = nil
         self._position = nil
+        self._type = "Scarica"
     }
     
     public var endpoint: String {
@@ -58,5 +60,10 @@ public class Download: Sendable {
         }
     }
 
-    
+    public var type: String {
+        get {
+            return self._type
+        }
+    }
+
 }

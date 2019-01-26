@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import WikiSDK
 
-class EditMacroViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-    @IBOutlet weak var macroNameTextField: UITextField!
+class EditMacroViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    @IBOutlet weak var macroNameTextField: UITextField! {
+        didSet {
+            self.macroNameTextField.delegate = self
+        }
+    }
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,8 +24,20 @@ class EditMacroViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField.text?.isEmpty)! {
+            return false
+        }
+        if textField == self.macroNameTextField {
+            if let text = self.macroNameTextField.text {
+                self.macro?.name = text
+            }
+        }
+        return true
+    }
+    
     private var pickerData = [String]()
-    private var pickerActions = [String]()
+    private let pickerActions = ["accendi", "spegni", "apri", "chiudi"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +46,6 @@ class EditMacroViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
-        pickerActions.append("accendi")
-        pickerActions.append("spegni")
-        pickerActions.append("apri")
-        pickerActions.append("chiudi")
     }
     
     private func getAllAccessoriesNames() -> [String] {
@@ -74,7 +87,9 @@ class EditMacroViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListAction", for: indexPath)
-        cell.textLabel?.text = self.macro?.sendable[indexPath.row].endpoint
+        if let type = self.macro?.sendable[indexPath.row].type, let name = self.macro?.sendable[indexPath.row].led?.name {
+            cell.textLabel?.text = "\(type) \(name)"
+        }
         return cell
     }
     
@@ -116,12 +131,40 @@ class EditMacroViewController: UIViewController, UITableViewDelegate, UITableVie
             return nil
         }
     }
-
-    @IBAction func addAction(_ sender: UIButton) {
-        
+    
+    private func getLedFromPickerView() -> Led? {
+        let name = self.pickerData[self.pickerView.selectedRow(inComponent: 1)]
+        return AppDelegate.house.getLedByName(name)
     }
+    
+    @IBAction func addAction(_ sender: UIButton) {
+        if let led = getLedFromPickerView() {
+            let action = self.pickerActions[self.pickerView.selectedRow(inComponent: 0)]
+            switch action {
+            case "accendi":
+                self.macro?.sendable.append(On(led: led))
+                break
+            case "spegni":
+                self.macro?.sendable.append(Off(led: led))
+                break
+            case "apri":
+                self.macro?.sendable.append(OpenClose(led: led))
+                break
+            case "chiudi":
+                self.macro?.sendable.append(OpenClose(led: led))
+                break
+            default:
+                break
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
     @IBAction func save(_ sender: UIBarButtonItem) {
         // save the macro
+        if let text = self.macroNameTextField.text {
+            self.macro?.name = text
+        }
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
