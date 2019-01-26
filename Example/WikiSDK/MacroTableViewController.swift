@@ -16,33 +16,7 @@ class MacroTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Macro"
-        
-        // init macro accendi tutto
-        var commands = [Sendable]()
-        commands.append(On(led: Led(name: "luce camera", key: "prova", position: 1)))
-        commands.append(On(led: Led(name: "luce bagno", key: "prova", position: 2)))
-        commands.append(On(led: Led(name: "luce cameretta", key: "prova", position: 3)))
-        commands.append(On(led: Led(name: "luce cucina", key: "prova", position: 4)))
-        commands.append(On(led: Led(name: "luce salotto", key: "prova", position: 5)))
-        commands.append(On(led: Led(name: "luce bottega", key: "prova", position: 6)))
-        commands.append(On(led: Led(name: "luce garage", key: "prova", position: 7)))
-        macros.append(Macro(name: "accendi tutto", sendable: commands))
-        var test = Macro.createStringFromMacros(macros)
-        // var response = Macro.createMacrosFromString(test)
-        print("\(test)")
-        
-        // init macro spegni tutto
-        var commands2 = [Sendable]()
-        commands2.append(Off(led: Led(name: "luce camera", key: "prova", position: 1)))
-        commands2.append(Off(led: Led(name: "luce bagno", key: "prova", position: 2)))
-        commands2.append(Off(led: Led(name: "luce cameretta", key: "prova", position: 3)))
-        commands2.append(Off(led: Led(name: "luce cucina", key: "prova", position: 4)))
-        commands2.append(Off(led: Led(name: "luce salotto", key: "prova", position: 5)))
-        commands2.append(Off(led: Led(name: "luce bottega", key: "prova", position: 6)))
-        commands2.append(Off(led: Led(name: "luce garage", key: "prova", position: 7)))
-        macros.append(Macro(name: "spegni tutto", sendable: commands2))
-        test = Macro.createStringFromMacros(macros)
-        print("\(test)")
+        self.macros = Utils.readMacro(file: Wiki.Constants.MACROFILE)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,12 +65,12 @@ class MacroTableViewController: UITableViewController {
                     let newMacro = Macro(name: "", sendable: [])
                     self.macros.append(newMacro)
                     emvc.macro = newMacro
-                    emvc.title = "New Macro"
+                    emvc.title = "Nuova Macro"
                 }
             } else if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 if let emvc = segue.destination.contents as? EditMacroViewController {
                     emvc.macro = macros[indexPath.row]
-                    emvc.title = "Edit Macro"
+                    emvc.title = "Modifica Macro"
                 }
             }
         }

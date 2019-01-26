@@ -44,6 +44,39 @@ public class Macro {
     }
     
     public static func createMacrosFromString(_ string: String) -> [Macro] {
-        return [Macro]()
+        var macros = [Macro]()
+        var sendable = [Sendable]()
+        do {
+            let json = try JSONSerialization.jsonObject(with: string.data(using: .utf8)!, options: .allowFragments) as? [[String : Any]]
+            for i in 0..<json!.count {
+                let macroname = json?[i]["name"] as? String
+                let send  = json?[i]["sendable"] as? [[String : Any]]
+                for j in 0..<send!.count {
+                    let name = send?[j]["name"] as? String
+                    let key = send?[j]["key"] as? String
+                    let position = send?[j]["position"] as? Int
+                    let type = send?[j]["type"] as? String
+                    switch type {
+                    case "Accendi":
+                        sendable.append(On(led: Led(name: name!, key: key!, position: position!)))
+                        break
+                    case "Spegni":
+                        sendable.append(Off(led: Led(name: name!, key: key!, position: position!)))
+                        break
+                    case "Apri/Chiudi":
+                        sendable.append(OpenClose(led: Led(name: name!, key: key!, position: position!)))
+                        break
+                    default:
+                        break
+                    }
+                }
+                macros.append(Macro(name: macroname!, sendable: sendable))
+                sendable.removeAll()
+            }
+        } catch {
+            sendable.removeAll()
+            macros.removeAll()
+        }
+        return macros
     }
 }
