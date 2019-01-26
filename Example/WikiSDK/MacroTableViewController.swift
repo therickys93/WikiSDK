@@ -47,6 +47,7 @@ class MacroTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Utils.saveMacros(self.macros, inFile: Wiki.Constants.MACROFILE)
         self.tableView.reloadData()
     }
 
@@ -77,6 +78,7 @@ class MacroTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             self.macros.remove(at: indexPath.row)
+            Utils.saveMacros(self.macros, inFile: Wiki.Constants.MACROFILE)
             self.tableView.reloadData()
         }
     }
