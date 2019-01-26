@@ -27,6 +27,9 @@ class MacroTableViewController: UITableViewController {
         commands.append(On(led: Led(name: "luce bottega", key: "prova", position: 6)))
         commands.append(On(led: Led(name: "luce garage", key: "prova", position: 7)))
         macros.append(Macro(name: "accendi tutto", sendable: commands))
+        var test = Macro.createStringFromMacros(macros)
+        // var response = Macro.createMacrosFromString(test)
+        print("\(test)")
         
         // init macro spegni tutto
         var commands2 = [Sendable]()
@@ -38,6 +41,8 @@ class MacroTableViewController: UITableViewController {
         commands2.append(Off(led: Led(name: "luce bottega", key: "prova", position: 6)))
         commands2.append(Off(led: Led(name: "luce garage", key: "prova", position: 7)))
         macros.append(Macro(name: "spegni tutto", sendable: commands2))
+        test = Macro.createStringFromMacros(macros)
+        print("\(test)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
