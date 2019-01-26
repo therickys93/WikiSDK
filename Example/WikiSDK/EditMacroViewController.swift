@@ -18,6 +18,12 @@ class EditMacroViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     
+    var update: Bool? {
+        didSet {
+            updateUI()
+        }
+    }
+    
     var macro: Macro? {
         didSet {
             updateUI()
@@ -31,6 +37,7 @@ class EditMacroViewController: UIViewController, UITableViewDelegate, UITableVie
         if textField == self.macroNameTextField {
             if let text = self.macroNameTextField.text {
                 self.macro?.name = text
+                textField.resignFirstResponder()
             }
         }
         return true
@@ -158,13 +165,5 @@ class EditMacroViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             self.tableView.reloadData()
         }
-    }
-    
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        // save the macro
-        if let text = self.macroNameTextField.text {
-            self.macro?.name = text
-        }
-        presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -24,6 +24,17 @@ class MacroTableViewController: UITableViewController {
         Utils.saveMacros(self.macros, inFile: Wiki.Constants.MACROFILE)
         self.tableView.reloadData()
     }
+    
+    @IBAction func saveMacro(_ sender: UIStoryboardSegue){
+        if sender.source is EditMacroViewController {
+            if let svc = sender.source as? EditMacroViewController, let macro = svc.macro, let update = svc.update {
+                if !update {
+                    self.macros.append(macro)
+                }
+            }
+            self.tableView.reloadData()
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -63,14 +74,15 @@ class MacroTableViewController: UITableViewController {
                 // from the plus button
                 if let emvc = segue.destination.contents as? EditMacroViewController {
                     let newMacro = Macro(name: "", sendable: [])
-                    self.macros.append(newMacro)
                     emvc.macro = newMacro
                     emvc.title = "Nuova Macro"
+                    emvc.update = false
                 }
             } else if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 if let emvc = segue.destination.contents as? EditMacroViewController {
                     emvc.macro = macros[indexPath.row]
                     emvc.title = "Modifica Macro"
+                    emvc.update = true
                 }
             }
         }
