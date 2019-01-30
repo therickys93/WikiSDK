@@ -73,6 +73,15 @@ public class Utils {
         Utils.writeContent(content, toFile: file, appending: false)
     }
     
+    public static func readMacro(file: String) -> [Macro] {
+        return Macro.createMacrosFromString(Utils.readContentOfFile(file: file))
+    }
+    
+    public static func saveMacros(_ macros: [Macro], inFile file: String){
+        let content = Macro.createStringFromMacros(macros)
+        return Utils.writeContent(content, toFile: file, appending: false)
+    }
+    
     public static func saveWikiControllerURL(_ url: String) {
         UserDefaults.standard.set(url, forKey: Wiki.Controllers.WikiController.DEFAULT_KEY)
     }
