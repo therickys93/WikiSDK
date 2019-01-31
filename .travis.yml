@@ -5,7 +5,7 @@ before_script:
 script:
 - set -o pipefail && xcodebuild build -workspace Example/WikiSDK.xcworkspace -scheme
   WikiSDK-Example -sdk iphonesimulator12.0 ONLY_ACTIVE_ARCH=NO | xcpretty
-- set -o pipefail && xctool -workspace Example/WikiSDK.xcworkspace  -scheme WikiSDK_Tests -sdk iphonesimulator12.0 run-tests
+- set -o pipefail && xcodebuild -workspace Example/WikiSDK.xcworkspace -scheme WikiSDK_Tests -destination 'platform=iOS Simulator,OS=12.1,name=iPhone X' build test | xcpretty
 - pod lib lint
 after_success:
 - sh set_tags.sh
