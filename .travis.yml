@@ -1,10 +1,11 @@
 osx_image: xcode10
 language: objective-c
+before_script:
+  - brew install xctool
 script:
 - set -o pipefail && xcodebuild build -workspace Example/WikiSDK.xcworkspace -scheme
   WikiSDK-Example -sdk iphonesimulator12.0 ONLY_ACTIVE_ARCH=NO | xcpretty
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/WikiSDK.xcworkspace
-  -scheme WikiSDK-Example -sdk iphonesimulator12.0 ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xctool -workspace Example/WikiSDK.xcworkspace  -scheme WikiSDK_Tests -sdk iphonesimulator run-tests
 - pod lib lint
 after_success:
 - sh set_tags.sh
