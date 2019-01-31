@@ -15,7 +15,7 @@ class Tests: XCTestCase {
         let led = Led(name: "name", key: "key", position: 1)
         XCTAssertEqual("name", led.name)
         XCTAssertEqual("key", led.key)
-        XCTAssertEqual(2, led.position)
+        XCTAssertEqual(1, led.position)
     }
     
 }
