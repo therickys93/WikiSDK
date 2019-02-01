@@ -20,6 +20,7 @@
 		9C8F0CB121FA374900ADA8BD /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F0CB021FA374900ADA8BD /* Macro.swift */; };
 		9C8F0CB321FA430E00ADA8BD /* EditMacroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F0CB221FA430E00ADA8BD /* EditMacroViewController.swift */; };
 		9C8F0CB521FA47D200ADA8BD /* MacroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F0CB421FA47D200ADA8BD /* MacroTableViewCell.swift */; };
+		9CA9C03B220384BC008D7A4C /* ControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9C03A220384BC008D7A4C /* ControllerTests.swift */; };
 		9CB8AB03216FB35600820E1B /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */; };
 		9CC80AD12170F0CF0091354E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC80AD02170F0CF0091354E /* Utils.swift */; };
 		9CFD44D92174ECAB0054BC60 /* Pods_WikiSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD44D82174ECAB0054BC60 /* Pods_WikiSDK_Example.framework */; };
@@ -59,6 +60,7 @@
 		9C8F0CB021FA374900ADA8BD /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		9C8F0CB221FA430E00ADA8BD /* EditMacroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMacroViewController.swift; sourceTree = "<group>"; };
 		9C8F0CB421FA47D200ADA8BD /* MacroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroTableViewCell.swift; sourceTree = "<group>"; };
+		9CA9C03A220384BC008D7A4C /* ControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerTests.swift; sourceTree = "<group>"; };
 		9CB8AB02216FB35600820E1B /* LightsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsTableViewController.swift; sourceTree = "<group>"; };
 		9CC80AD02170F0CF0091354E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9CFD44D62174EC910054BC60 /* WikiSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WikiSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9CA9C03A220384BC008D7A4C /* ControllerTests.swift */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				9CA9C03B220384BC008D7A4C /* ControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +562,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5ABCD53EB7F540A2A1C89DDB /* Pods-WikiSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -576,6 +581,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8990329F81FDE3A6E4B48677 /* Pods-WikiSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
