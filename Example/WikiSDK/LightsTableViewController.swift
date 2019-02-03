@@ -29,9 +29,11 @@ class LightsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if AppDelegate.house.ledCount() > 0 {
+            tableView.separatorStyle = .singleLine
             return AppDelegate.house.ledCount()
         } else {
-            return 0
+            tableView.separatorStyle = .none
+            return 1
         }
     }
     
@@ -40,21 +42,35 @@ class LightsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Wiki.Controllers.LightsController.CELL_REUSE_IDENTIFIER, for: indexPath)
-
-        // Configure the cell...
-        if let ledCell = cell as? LightTableViewCell {
-            ledCell.led = getLedAt(indexPath: indexPath)
-        }
         
-        return cell
+        if AppDelegate.house.ledCount() > 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Wiki.Controllers.LightsController.CELL_REUSE_IDENTIFIER, for: indexPath)
+
+            // Configure the cell...
+            if let ledCell = cell as? LightTableViewCell {
+                ledCell.led = getLedAt(indexPath: indexPath)
+            }
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NoLightsFound", for: indexPath)
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if AppDelegate.house.ledCount() > 0 {
+            return .delete
+        } else {
+            return .none
+        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        if editingStyle == .delete && AppDelegate.house.ledCount() > 0 {
             AppDelegate.house.removeLedAt(indexPath.row)
             Utils.saveLeds(AppDelegate.house.led, inFile: Wiki.Constants.DBFILE)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.reloadData()
         }
     }
     
@@ -101,7 +117,9 @@ class LightsTableViewController: UITableViewController {
             if let name = alertController.textFields?[0].text,
                 let key = alertController.textFields?[1].text,
                 let position = alertController.textFields?[2].text {
-                let response = AppDelegate.house.addLed(Led(name: name, key: key, position: Int(position) ?? -1))
+                var value = Int(position) ?? 0
+                value = value - 1
+                let response = AppDelegate.house.addLed(Led(name: name, key: key, position: value))
                 if !response {
                     // notify the error
                     let alertController2 = UIAlertController(title: "Attenzione", message: "Accessorio già aggiunto", preferredStyle: .alert)

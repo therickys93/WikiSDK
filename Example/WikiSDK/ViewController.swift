@@ -81,7 +81,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             return Wiki.Constants.NO_LIGHTS_FOUND
         }
     }
-    
+        
     @IBAction func switchOn(_ sender: UIButton) {
         if let server = self.wikiControllerServerTextField.text {
             let wikicontroller = WikiController(server: server)

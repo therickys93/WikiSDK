@@ -90,7 +90,7 @@ public class WikiController {
     }
     
     public func openClose(led: Led, completionHandler handler: @escaping (Bool) -> Void) {
-        self.switchOn(key: led.key, position: led.position) { response in
+        self.openClose(key: led.key, position: led.position) { response in
             handler(response)
         }
     }
