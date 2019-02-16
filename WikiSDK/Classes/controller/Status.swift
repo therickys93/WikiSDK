@@ -24,6 +24,17 @@ public class Status: Sendable {
         self._type = "Stato"
     }
     
+    public convenience init(key: String, position: Int){
+        self.init(key: key)
+        self._endpoint = "/status/\(key)/\(position)"
+        self._position = position
+    }
+    
+    public convenience init(led: Led){
+        self.init(key: led.key, position: led.position)
+        self._led = led
+    }
+    
     public var endpoint: String {
         get {
             return self._endpoint
