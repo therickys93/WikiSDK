@@ -172,5 +172,31 @@ class ControllerTests: XCTestCase {
         XCTAssertEqual(1, openclose.position)
         XCTAssertEqual("Apri/Chiudi", openclose.type)
     }
+    
+    func testStatusWithKeyPosition() {
+        let status = Status(key: "key", position: 1)
+        XCTAssertEqual("/status/key/1", status.endpoint)
+        XCTAssertEqual(nil, status.json)
+        XCTAssertEqual("key", status.key)
+        XCTAssertEqual(nil, status.led?.key)
+        XCTAssertEqual(nil, status.led?.position)
+        XCTAssertEqual(nil, status.led?.name)
+        XCTAssertEqual("GET", status.method)
+        XCTAssertEqual(1, status.position)
+        XCTAssertEqual("Stato", status.type)
+    }
+
+    func testStatusWithLed() {
+        let status = Status(led: Led(name: "pippo", key: "key", position: 1))
+        XCTAssertEqual("/status/key/1", status.endpoint)
+        XCTAssertEqual(nil, status.json)
+        XCTAssertEqual("key", status.key)
+        XCTAssertEqual("key", status.led?.key)
+        XCTAssertEqual(1, status.led?.position)
+        XCTAssertEqual("pippo", status.led?.name)
+        XCTAssertEqual("GET", status.method)
+        XCTAssertEqual(1, status.position)
+        XCTAssertEqual("Stato", status.type)
+    }
 
 }
