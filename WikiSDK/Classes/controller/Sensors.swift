@@ -11,17 +11,19 @@ public class Sensors: Sendable {
     private var _endpoint: String
     private var _method: String
     private var _led: Led?
+    private var _sensor: Sensor?
     private var _key: String?
     private var _position: Int?
     private var _type: String
     
-    public init(key: String) {
+    private init(key: String) {
         self._endpoint = "/sensors/\(key)"
         self._method   = "GET"
         self._key = key
         self._led = nil
         self._position = nil
         self._type = "Sensors"
+        self._sensor = nil
     }
     
     public convenience init(key: String, position: Int){
@@ -32,7 +34,7 @@ public class Sensors: Sendable {
     
     public convenience init(sensor: Sensor){
         self.init(key: sensor.key, position: sensor.position)
-        
+        self._sensor = sensor
     }
     
     public var endpoint: String {
@@ -56,6 +58,12 @@ public class Sensors: Sendable {
     public var led: Led? {
         get {
             return self._led
+        }
+    }
+    
+    public var sensor: Sensor? {
+        get {
+            return self._sensor
         }
     }
     

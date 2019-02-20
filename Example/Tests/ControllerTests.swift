@@ -200,16 +200,35 @@ class ControllerTests: XCTestCase {
     }
     
     func testSensors() {
-        let sensors = Sensors(key: "key")
-        XCTAssertEqual("/sensors/key", sensors.endpoint)
+        let sensors = Sensors(key: "key", position: 1)
+        XCTAssertEqual("/sensors/key/1", sensors.endpoint)
         XCTAssertEqual(nil, sensors.json)
         XCTAssertEqual("key", sensors.key)
         XCTAssertEqual(nil, sensors.led?.key)
         XCTAssertEqual(nil, sensors.led?.position)
         XCTAssertEqual(nil, sensors.led?.name)
         XCTAssertEqual("GET", sensors.method)
-        XCTAssertEqual(nil, sensors.position)
+        XCTAssertEqual(1, sensors.position)
         XCTAssertEqual("Sensors", sensors.type)
+        XCTAssertEqual(nil, sensors.sensor?.key)
+        XCTAssertEqual(nil, sensors.sensor?.name)
+        XCTAssertEqual(nil, sensors.sensor?.position)
+    }
+    
+    func testSensorsWithSensor() {
+        let sensors = Sensors(sensor: Sensor(name: "name", key: "key", position: 2))
+        XCTAssertEqual("/sensors/key/2", sensors.endpoint)
+        XCTAssertEqual(nil, sensors.json)
+        XCTAssertEqual("key", sensors.key)
+        XCTAssertEqual(nil, sensors.led?.key)
+        XCTAssertEqual(nil, sensors.led?.position)
+        XCTAssertEqual(nil, sensors.led?.name)
+        XCTAssertEqual("GET", sensors.method)
+        XCTAssertEqual(2, sensors.position)
+        XCTAssertEqual("Sensors", sensors.type)
+        XCTAssertEqual("name", sensors.sensor?.name)
+        XCTAssertEqual("key", sensors.sensor?.key)
+        XCTAssertEqual(2, sensors.sensor?.position)
     }
 
 }
