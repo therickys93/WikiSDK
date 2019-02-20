@@ -198,5 +198,18 @@ class ControllerTests: XCTestCase {
         XCTAssertEqual(1, status.position)
         XCTAssertEqual("Stato", status.type)
     }
+    
+    func testSensors() {
+        let sensors = Sensors(key: "key")
+        XCTAssertEqual("/sensors/key", sensors.endpoint)
+        XCTAssertEqual(nil, sensors.json)
+        XCTAssertEqual("key", sensors.key)
+        XCTAssertEqual(nil, sensors.led?.key)
+        XCTAssertEqual(nil, sensors.led?.position)
+        XCTAssertEqual(nil, sensors.led?.name)
+        XCTAssertEqual("GET", sensors.method)
+        XCTAssertEqual(nil, sensors.position)
+        XCTAssertEqual("Sensors", sensors.type)
+    }
 
 }

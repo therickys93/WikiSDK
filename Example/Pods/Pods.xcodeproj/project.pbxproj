@@ -27,8 +27,9 @@
 		9CBF666A21ED07DF0072D56C /* InitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF666921ED07DF0072D56C /* InitKey.swift */; };
 		9CBF666B21ED09580072D56C /* InitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBF666921ED07DF0072D56C /* InitKey.swift */; };
 		9CF45AD6221DC3B300D5C521 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF45AD5221DC3B300D5C521 /* Sensor.swift */; };
-		9CF45AD7221DC3B300D5C521 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF45AD5221DC3B300D5C521 /* Sensor.swift */; };
 		9CF45AD8221DC3B300D5C521 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF45AD5221DC3B300D5C521 /* Sensor.swift */; };
+		9CF45ADA221DC6F400D5C521 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF45AD9221DC6F400D5C521 /* Sensors.swift */; };
+		9CF45ADC221DC6F400D5C521 /* Sensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF45AD9221DC6F400D5C521 /* Sensors.swift */; };
 		9CFD44C22174E97F0054BC60 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BC2174E97E0054BC60 /* Reset.swift */; };
 		9CFD44C32174E97F0054BC60 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BC2174E97E0054BC60 /* Reset.swift */; };
 		9CFD44C42174E97F0054BC60 /* Off.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD44BD2174E97F0054BC60 /* Off.swift */; };
@@ -95,7 +96,8 @@
 		9CAB8F0021723E2D007FA769 /* Sendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sendable.swift; path = WikiSDK/Classes/controller/Sendable.swift; sourceTree = "<group>"; };
 		9CAB8F0121723E2D007FA769 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = WikiSDK/Classes/controller/Home.swift; sourceTree = "<group>"; };
 		9CBF666921ED07DF0072D56C /* InitKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitKey.swift; path = WikiSDK/Classes/controller/InitKey.swift; sourceTree = "<group>"; };
-		9CF45AD5221DC3B300D5C521 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sensor.swift; path = WikiSDK/Classes/model/Sensor.swift; sourceTree = "<group>"; };
+		9CF45AD5221DC3B300D5C521 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sensor.swift; path = WikiSDK/Classes/model/Sensor.swift; sourceTree = "<group>"; };
+		9CF45AD9221DC6F400D5C521 /* Sensors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sensors.swift; path = WikiSDK/Classes/controller/Sensors.swift; sourceTree = "<group>"; };
 		9CFD44BC2174E97E0054BC60 /* Reset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reset.swift; path = WikiSDK/Classes/controller/Reset.swift; sourceTree = "<group>"; };
 		9CFD44BD2174E97F0054BC60 /* Off.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Off.swift; path = WikiSDK/Classes/controller/Off.swift; sourceTree = "<group>"; };
 		9CFD44BE2174E97F0054BC60 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = WikiSDK/Classes/controller/Status.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				9C2A6A1721765F6B0026DC27 /* Download.swift */,
 				9C2A6A1A21766E8C0026DC27 /* Upload.swift */,
 				9CBF666921ED07DF0072D56C /* InitKey.swift */,
+				9CF45AD9221DC6F400D5C521 /* Sensors.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				C56F9F8ED0856A6E48416B2FEAC1421B /* Pods-WikiSDK_Example-dummy.m in Sources */,
 				9CFD44C62174E97F0054BC60 /* Status.swift in Sources */,
 				9CAB8F0421723E2D007FA769 /* Home.swift in Sources */,
+				9CF45ADA221DC6F400D5C521 /* Sensors.swift in Sources */,
 				9CFD44C82174E97F0054BC60 /* WikiController.swift in Sources */,
 				9C2A6A132176499E0026DC27 /* Led.swift in Sources */,
 				9C2A6A1B21766E8C0026DC27 /* Upload.swift in Sources */,
@@ -486,6 +490,7 @@
 				9CFD44C52174E97F0054BC60 /* Off.swift in Sources */,
 				AB18A3166F99B8DF017D06EFF3E8F553 /* WikiSDK-dummy.m in Sources */,
 				9CFD44C72174E97F0054BC60 /* Status.swift in Sources */,
+				9CF45ADC221DC6F400D5C521 /* Sensors.swift in Sources */,
 				9CAB8F0521723E2D007FA769 /* Home.swift in Sources */,
 				9CFD44C92174E97F0054BC60 /* WikiController.swift in Sources */,
 				9C2A6A142176499E0026DC27 /* Led.swift in Sources */,
@@ -504,7 +509,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EEC9696B0065886A984FB3BF505B7E9 /* Pods-WikiSDK_Tests-dummy.m in Sources */,
-				9CF45AD7221DC3B300D5C521 /* Sensor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
