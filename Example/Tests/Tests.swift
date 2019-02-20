@@ -18,6 +18,13 @@ class Tests: XCTestCase {
         XCTAssertEqual(1, led.position)
     }
     
+    func testEmptyLed() {
+        let led = Led()
+        XCTAssertEqual("", led.name)
+        XCTAssertEqual("", led.key)
+        XCTAssertEqual(-1, led.position)
+    }
+    
     func testHouseAddLed() {
         let house = House()
         XCTAssertEqual(0, house.led.count)
@@ -66,6 +73,20 @@ class Tests: XCTestCase {
         XCTAssertEqual(0, house.ledCount())
         _ = house.addLed(Led(name: "name", key: "key", position: 1))
         XCTAssertEqual(1, house.ledCount())
+    }
+    
+    func testSensor() {
+        let sensor = Sensor(name: "name", key: "key", position: 1)
+        XCTAssertEqual("name", sensor.name)
+        XCTAssertEqual("key", sensor.key)
+        XCTAssertEqual(1, sensor.position)
+    }
+    
+    func testEmptySensor() {
+        let sensor = Sensor()
+        XCTAssertEqual("", sensor.name)
+        XCTAssertEqual("", sensor.key)
+        XCTAssertEqual(-1, sensor.position)
     }
     
 }
