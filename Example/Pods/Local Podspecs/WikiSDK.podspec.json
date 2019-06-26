@@ -1,8 +1,8 @@
 {
   "name": "WikiSDK",
   "version": "0.1.0",
-  "summary": "A short description of WikiSDK.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "WikiSDK per il progetto Wiki.",
+  "description": "Semplice API scritta in Swift per il progetto Wiki.",
   "homepage": "https://github.com/therickys93/WikiSDK",
   "license": {
     "type": "MIT",
@@ -15,6 +15,7 @@
     "git": "https://github.com/therickys93/WikiSDK.git",
     "tag": "0.1.0"
   },
+  "swift_version": "4.2",
   "platforms": {
     "ios": "8.0"
   },

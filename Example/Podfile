@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'WikiSDK_Example' do
   pod 'WikiSDK', :path => '../'
-
+  pod 'Parse'
   target 'WikiSDK_Tests' do
     inherit! :search_paths
 

@@ -1,16 +1,29 @@
 PODS:
+  - Bolts/Tasks (1.9.0)
+  - Parse (1.17.1):
+    - Parse/Core (= 1.17.1)
+  - Parse/Core (1.17.1):
+    - Bolts/Tasks (~> 1.9)
   - WikiSDK (0.1.0)
 
 DEPENDENCIES:
+  - Parse
   - WikiSDK (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Bolts
+    - Parse
 
 EXTERNAL SOURCES:
   WikiSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  WikiSDK: c8d9d1e342cf562574dd5d6abba596b5b62005fa
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  WikiSDK: d59b0e14dd6135b8e13d9e7ca8982c2d543b8fe3
 
-PODFILE CHECKSUM: 4e07b2f0a1bc0ee39271633b002fb871ba43c026
+PODFILE CHECKSUM: cb94c9c01323448ea7c4e26b651140f84467b1d8
 
 COCOAPODS: 1.5.3
