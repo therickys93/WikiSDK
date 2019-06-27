@@ -102,11 +102,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     {
         let action = PFObject(className: Wiki.Controllers.WikiController.PARSE_CLASS_NAME)
         action[Wiki.Controllers.WikiController.PARSE_FIELD] = sendable.endpoint
-        action.saveInBackground { (success, error) in
+        action.saveInBackground { [weak self] (success, error) in
             if success {
-                self.showToast(message: "OK")
+                self?.showToast(message: "OK")
             } else {
-                self.showToast(message: "ERRORE")
+                self?.showToast(message: "ERRORE")
             }
         }
     }
