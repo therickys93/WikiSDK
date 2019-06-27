@@ -23,6 +23,8 @@ struct Wiki {
             static let TITLE       = "Wiki"
             static let DEFAULT_URL = "http://controller.wiki.home"
             static let DEFAULT_KEY = "WIKICONTROLLER_URL"
+            static let PARSE_APP_ID = "therickys93-wiki"
+            static let PARSE_URL    = "https://therickys93-wiki.herokuapp.com/parse"
         }
         struct LightsController {
             static let TITLE                 = "Configura Casa"

@@ -8,12 +8,14 @@
 
 import UIKit
 import WikiSDK
+import Parse
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var wikiControllerServerTextField: UITextField!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var lightPickerView: UIPickerView!
+    @IBOutlet weak var useParseSwitch: UISwitch!
     
     var pickerData: [String] = [String]()
     
@@ -81,79 +83,131 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             return Wiki.Constants.NO_LIGHTS_FOUND
         }
     }
+    
+    
+    @IBAction func updateControllerEndpoint(_ sender: UISwitch) {
+        if sender.isOn {
+            // use Parse and change textfield
+            self.wikiControllerServerTextField.text = "Use Parse Server"
+            self.wikiControllerServerTextField.isEnabled = false
+        } else {
+            // use wikicontroller and change textfield
+            self.wikiControllerServerTextField.text = Utils.loadWikiControllerURL()
+            self.wikiControllerServerTextField.isEnabled = true
+        }
+    }
+    
+    
+    private func sendMessageToParseServer(_ sendable: Sendable)
+    {
+        let action = PFObject(className: "Commands")
+        action["url"] = sendable.endpoint
+        action.saveInBackground { (success, error) in
+            if success {
+                self.showToast(message: "OK")
+            } else {
+                self.showToast(message: "error")
+            }
+        }
+    }
         
     @IBAction func switchOn(_ sender: UIButton) {
-        if let server = self.wikiControllerServerTextField.text {
-            let wikicontroller = WikiController(server: server)
-            if let led = getLedFromPickerView() {
-                wikicontroller.switchOn(led: led) { [weak self] response in
-                    DispatchQueue.main.async {
-                        if response {
-                            Utils.writeToLog("Switch on led: \(led.name) --> response OK")
-                            self?.showToast(message: "OK")
-                        } else {
-                            Utils.writeToLog("Switch on led: \(led.name) --> response ERRORE")
-                            self?.showToast(message: "ERRORE")
+        if !useParseSwitch.isOn {
+            if let server = self.wikiControllerServerTextField.text {
+                let wikicontroller = WikiController(server: server)
+                if let led = getLedFromPickerView() {
+                    wikicontroller.switchOn(led: led) { [weak self] response in
+                        DispatchQueue.main.async {
+                            if response {
+                                Utils.writeToLog("Switch on led: \(led.name) --> response OK")
+                                self?.showToast(message: "OK")
+                            } else {
+                                Utils.writeToLog("Switch on led: \(led.name) --> response ERRORE")
+                                self?.showToast(message: "ERRORE")
+                            }
                         }
                     }
                 }
+            }
+        } else {
+            // use parse
+            if let led = getLedFromPickerView() {
+                sendMessageToParseServer(On(led: led))
             }
         }
     }
     
     @IBAction func switchOff(_ sender: UIButton) {
-        if let server = self.wikiControllerServerTextField.text {
-            let wikicontroller = WikiController(server: server)
-            if let led = getLedFromPickerView() {
-                wikicontroller.switchOff(led: led) { [weak self] response in
-                    DispatchQueue.main.async {
-                        if response {
-                            Utils.writeToLog("Switch off led: \(led.name) --> response OK")
-                            self?.showToast(message: "OK")
-                        } else {
-                            Utils.writeToLog("Switch off led: \(led.name) --> response ERROR")
-                            self?.showToast(message: "ERRORE")
+        if !useParseSwitch.isOn {
+            if let server = self.wikiControllerServerTextField.text {
+                let wikicontroller = WikiController(server: server)
+                if let led = getLedFromPickerView() {
+                    wikicontroller.switchOff(led: led) { [weak self] response in
+                        DispatchQueue.main.async {
+                            if response {
+                                Utils.writeToLog("Switch off led: \(led.name) --> response OK")
+                                self?.showToast(message: "OK")
+                            } else {
+                                Utils.writeToLog("Switch off led: \(led.name) --> response ERROR")
+                                self?.showToast(message: "ERRORE")
+                            }
                         }
                     }
                 }
+            }
+        } else {
+            if let led = getLedFromPickerView() {
+                sendMessageToParseServer(Off(led: led))
             }
         }
     }
     
     @IBAction func open(_ sender: UIButton) {
-        if let server = self.wikiControllerServerTextField.text {
-            let wikicontroller = WikiController(server: server)
-            if let led = getLedFromPickerView() {
-                wikicontroller.openClose(led: led) { [weak self] response in
-                    DispatchQueue.main.async {
-                        if response {
-                            Utils.writeToLog("Open led: \(led.name) --> response OK")
-                            self?.showToast(message: "OK")
-                        } else {
-                            Utils.writeToLog("Open led: \(led.name) --> response ERRORE")
-                            self?.showToast(message: "ERRORE")
+        if !useParseSwitch.isOn {
+            if let server = self.wikiControllerServerTextField.text {
+                let wikicontroller = WikiController(server: server)
+                if let led = getLedFromPickerView() {
+                    wikicontroller.openClose(led: led) { [weak self] response in
+                        DispatchQueue.main.async {
+                            if response {
+                                Utils.writeToLog("Open led: \(led.name) --> response OK")
+                                self?.showToast(message: "OK")
+                            } else {
+                                Utils.writeToLog("Open led: \(led.name) --> response ERRORE")
+                                self?.showToast(message: "ERRORE")
+                            }
                         }
                     }
                 }
+            }
+        } else {
+            if let led = getLedFromPickerView() {
+                sendMessageToParseServer(OpenClose(led: led))
             }
         }
     }
     
     @IBAction func close(_ sender: UIButton) {
-        if let server = self.wikiControllerServerTextField.text {
-            let wikicontroller = WikiController(server: server)
-            if let led = getLedFromPickerView() {
-                wikicontroller.openClose(led: led) { [weak self] response in
-                    DispatchQueue.main.async {
-                        if response {
-                            Utils.writeToLog("Close led: \(led.name) --> response OK")
-                            self?.showToast(message: "OK")
-                        } else {
-                            Utils.writeToLog("Close led: \(led.name) --> response ERRORE")
-                            self?.showToast(message: "ERRORE")
+        if !useParseSwitch.isOn {
+            if let server = self.wikiControllerServerTextField.text {
+                let wikicontroller = WikiController(server: server)
+                if let led = getLedFromPickerView() {
+                    wikicontroller.openClose(led: led) { [weak self] response in
+                        DispatchQueue.main.async {
+                            if response {
+                                Utils.writeToLog("Close led: \(led.name) --> response OK")
+                                self?.showToast(message: "OK")
+                            } else {
+                                Utils.writeToLog("Close led: \(led.name) --> response ERRORE")
+                                self?.showToast(message: "ERRORE")
+                            }
                         }
                     }
                 }
+            }
+        } else {
+            if let led = getLedFromPickerView() {
+                sendMessageToParseServer(OpenClose(led: led))
             }
         }
     }
