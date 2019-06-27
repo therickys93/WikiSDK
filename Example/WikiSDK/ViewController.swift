@@ -100,13 +100,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     private func sendMessageToParseServer(_ sendable: Sendable)
     {
-        let action = PFObject(className: "Commands")
-        action["url"] = sendable.endpoint
+        let action = PFObject(className: Wiki.Controllers.WikiController.PARSE_CLASS_NAME)
+        action[Wiki.Controllers.WikiController.PARSE_FIELD] = sendable.endpoint
         action.saveInBackground { (success, error) in
             if success {
                 self.showToast(message: "OK")
             } else {
-                self.showToast(message: "error")
+                self.showToast(message: "ERRORE")
             }
         }
     }
