@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // parse config init
         let parseconfig = ParseClientConfiguration { (parse) in
-            parse.applicationId = Wiki.Controllers.WikiController.PARSE_APP_ID
+            parse.applicationId = Wiki.Controllers.WikiController.DEFAULT_PARSE_APP_ID
             parse.clientKey = "ios-therickys93-wiki"
-            parse.server = Wiki.Controllers.WikiController.PARSE_URL
+            parse.server = Wiki.Controllers.WikiController.DEFAULT_PARSE_URL
         }
         
         Parse.initialize(with: parseconfig)

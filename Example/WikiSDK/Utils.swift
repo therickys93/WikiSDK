@@ -107,5 +107,38 @@ public class Utils {
         return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiServer.DEFAULT_USER_KEY) ??
             Wiki.Controllers.WikiServer.DEFAULT_USER_VALUE
     }
+    
+    public static func saveParseURL(_ url: String) {
+        UserDefaults.standard.set(url, forKey: Wiki.Controllers.WikiController.KEY_PARSE_URL)
+    }
+    
+    public static func loadParseURL() -> String {
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiController.KEY_PARSE_URL) ?? Wiki.Controllers.WikiController.DEFAULT_PARSE_URL
+    }
+    
+    public static func saveParseAppId(_ appId: String) {
+        
+    }
+    
+    public static func loadParseAppId() -> String {
+        return ""
+    }
+    
+    public static func saveParseClassName(_ className: String) {
+        
+    }
+    
+    public static func loadParseClassName() -> String {
+        return ""
+    }
+    
+    public static func saveParseField(_ field: String) {
+        
+    }
+    
+    public static func loadParseField() -> String {
+        return ""
+    }
+    
 
 }
