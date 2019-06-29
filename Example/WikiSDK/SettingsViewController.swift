@@ -33,15 +33,19 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if appIDTextField == textField {
+            Utils.writeToLog("Parse appID: \(textField.text!)")
             Utils.saveParseAppId(textField.text!)
         }
         if urlTextField == textField {
+            Utils.writeToLog("Parse URL: \(textField.text!)")
             Utils.saveParseURL(textField.text!)
         }
         if classNameTextField == textField {
+            Utils.writeToLog("Parse ClassName: \(textField.text!)")
             Utils.saveParseClassName(textField.text!)
         }
         if fieldTextField == textField {
+            Utils.writeToLog("Parse Field: \(textField.text!)")
             Utils.saveParseField(textField.text!)
         }
         return true
