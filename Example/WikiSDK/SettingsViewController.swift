@@ -15,12 +15,17 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var classNameTextField: UITextField!
     @IBOutlet weak var fieldTextField: UITextField!
     
+    @IBOutlet weak var urlControllerTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.appIDTextField.delegate = self
         self.urlTextField.delegate = self
         self.classNameTextField.delegate = self
         self.fieldTextField.delegate = self
+        
+        self.urlControllerTextField.delegate = self
 
         // Do any additional setup after loading the view.
         self.title = Wiki.Controllers.Settings.TITLE
@@ -28,6 +33,8 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         self.urlTextField.text = Utils.loadParseURL()
         self.classNameTextField.text = Utils.loadParseClassName()
         self.fieldTextField.text = Utils.loadParseField()
+        
+        self.urlControllerTextField.text = Utils.loadWikiControllerURL()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -47,6 +54,10 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         if fieldTextField == textField {
             Utils.writeToLog("Parse Field: \(textField.text!)")
             Utils.saveParseField(textField.text!)
+        }
+        if urlControllerTextField == textField {
+            Utils.writeToLog("Controller URL: \(textField.text!)")
+            Utils.saveWikiControllerURL(textField.text!)
         }
         return true
     }

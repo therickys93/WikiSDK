@@ -532,6 +532,43 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Controller" id="3xB-tA-QTi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OWv-VD-npt">
+                                        <rect key="frame" x="0.0" y="299.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OWv-VD-npt" id="Nc1-wG-LAq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="5dS-6G-fBB">
+                                                    <rect key="frame" x="20" y="7" width="335" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZe-Zk-0b3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y1L-8o-VG5">
+                                                            <rect key="frame" x="110" y="0.0" width="225" height="30"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="5dS-6G-fBB" secondAttribute="trailing" constant="20" symbolic="YES" id="BxW-52-vJw"/>
+                                                <constraint firstItem="5dS-6G-fBB" firstAttribute="centerX" secondItem="Nc1-wG-LAq" secondAttribute="centerX" id="h5g-WE-ipC"/>
+                                                <constraint firstItem="5dS-6G-fBB" firstAttribute="centerY" secondItem="Nc1-wG-LAq" secondAttribute="centerY" id="ua5-68-yyQ"/>
+                                                <constraint firstItem="5dS-6G-fBB" firstAttribute="leading" secondItem="Nc1-wG-LAq" secondAttribute="leading" constant="20" id="vEU-In-lag"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="uzY-6k-C2m" id="qE6-7c-Qok"/>
@@ -543,6 +580,7 @@
                         <outlet property="appIDTextField" destination="5cx-wt-a1J" id="QWv-Fj-8fy"/>
                         <outlet property="classNameTextField" destination="zqe-82-eeA" id="RIZ-BK-0HO"/>
                         <outlet property="fieldTextField" destination="ulp-WC-qUP" id="YK7-Sp-WZk"/>
+                        <outlet property="urlControllerTextField" destination="y1L-8o-VG5" id="p81-uD-SO4"/>
                         <outlet property="urlTextField" destination="SdT-kP-2SX" id="qcY-Zl-4Fq"/>
                     </connections>
                 </tableViewController>
