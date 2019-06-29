@@ -43,5 +43,8 @@ struct Wiki {
             static let DEFAULT_USER_KEY   = "WIKISERVER_USER"
             static let DEFAULT_USER_VALUE = "therickys93"
         }
+        struct Settings {
+            static let TITLE = "Impostazioni"
+        }
     }
 }
