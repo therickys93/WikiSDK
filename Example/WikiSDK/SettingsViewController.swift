@@ -17,6 +17,9 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var urlControllerTextField: UITextField!
     
+    @IBOutlet weak var urlServerTextField: UITextField!
+    @IBOutlet weak var userServerTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,9 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         self.fieldTextField.delegate = self
         
         self.urlControllerTextField.delegate = self
+        
+        self.urlServerTextField.delegate = self
+        self.userServerTextField.delegate = self
 
         // Do any additional setup after loading the view.
         self.title = Wiki.Controllers.Settings.TITLE
@@ -35,6 +41,9 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         self.fieldTextField.text = Utils.loadParseField()
         
         self.urlControllerTextField.text = Utils.loadWikiControllerURL()
+        
+        self.urlServerTextField.text = Utils.loadWikiServerURL()
+        self.userServerTextField.text = Utils.loadWikiServerUser()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -58,6 +67,14 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         if urlControllerTextField == textField {
             Utils.writeToLog("Controller URL: \(textField.text!)")
             Utils.saveWikiControllerURL(textField.text!)
+        }
+        if urlServerTextField == textField {
+            Utils.writeToLog("Server URL: \(textField.text!)")
+            Utils.saveWikiServerURL(textField.text!)
+        }
+        if userServerTextField == textField {
+            Utils.writeToLog("Server User: \(textField.text!)")
+            Utils.saveWikiServerUser(textField.text!)
         }
         return true
     }
