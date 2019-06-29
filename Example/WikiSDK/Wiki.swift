@@ -20,9 +20,17 @@ struct Wiki {
     }
     struct Controllers {
         struct WikiController {
-            static let TITLE       = "Wiki"
-            static let DEFAULT_URL = "http://controller.wiki.home"
-            static let DEFAULT_KEY = "WIKICONTROLLER_URL"
+            static let TITLE                    = "Wiki"
+            static let DEFAULT_URL              = "http://controller.wiki.home"
+            static let DEFAULT_KEY              = "WIKICONTROLLER_URL"
+            static let KEY_PARSE_APP_ID         = "KEY_PARSE_APP_ID"
+            static let KEY_PARSE_URL            = "KEY_PARSE_URL"
+            static let KEY_PARSE_CLASS_NAME     = "KEY_PARSE_CLASS_NAME"
+            static let KEY_PARSE_FIELD          = "KEY_PARSE_FIELD"
+            static let DEFAULT_PARSE_APP_ID     = "therickys93-wiki"
+            static let DEFAULT_PARSE_URL        = "https://therickys93-wiki.herokuapp.com/parse"
+            static let DEFAULT_PARSE_CLASS_NAME = "Commands"
+            static let DEFAULT_PARSE_FIELD      = "url"
         }
         struct LightsController {
             static let TITLE                 = "Configura Casa"
@@ -30,10 +38,13 @@ struct Wiki {
         }
         struct WikiServer {
             static let TITLE              = "Wiki AI"
-            static let DEFAULT_URL_VALUE  = "http://server.wiki.home/v1/wiki"
+            static let DEFAULT_URL_VALUE  = "http://server.wiki.home/v2/wiki"
             static let DEFAULT_URL_KEY    = "WIKISERVER_URL"
             static let DEFAULT_USER_KEY   = "WIKISERVER_USER"
             static let DEFAULT_USER_VALUE = "therickys93"
+        }
+        struct Settings {
+            static let TITLE = "Impostazioni"
         }
     }
 }

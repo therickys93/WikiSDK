@@ -107,5 +107,38 @@ public class Utils {
         return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiServer.DEFAULT_USER_KEY) ??
             Wiki.Controllers.WikiServer.DEFAULT_USER_VALUE
     }
+    
+    public static func saveParseURL(_ url: String) {
+        UserDefaults.standard.set(url, forKey: Wiki.Controllers.WikiController.KEY_PARSE_URL)
+    }
+    
+    public static func loadParseURL() -> String {
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiController.KEY_PARSE_URL) ?? Wiki.Controllers.WikiController.DEFAULT_PARSE_URL
+    }
+    
+    public static func saveParseAppId(_ appId: String) {
+        UserDefaults.standard.set(appId, forKey: Wiki.Controllers.WikiController.KEY_PARSE_APP_ID)
+    }
+    
+    public static func loadParseAppId() -> String {
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiController.KEY_PARSE_APP_ID) ?? Wiki.Controllers.WikiController.DEFAULT_PARSE_APP_ID
+    }
+    
+    public static func saveParseClassName(_ className: String) {
+        UserDefaults.standard.set(className, forKey: Wiki.Controllers.WikiController.KEY_PARSE_CLASS_NAME)
+    }
+    
+    public static func loadParseClassName() -> String {
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiController.KEY_PARSE_CLASS_NAME) ?? Wiki.Controllers.WikiController.DEFAULT_PARSE_CLASS_NAME
+    }
+    
+    public static func saveParseField(_ field: String) {
+        UserDefaults.standard.set(field, forKey: Wiki.Controllers.WikiController.KEY_PARSE_FIELD)
+    }
+    
+    public static func loadParseField() -> String {
+        return UserDefaults.standard.string(forKey: Wiki.Controllers.WikiController.KEY_PARSE_FIELD) ?? Wiki.Controllers.WikiController.DEFAULT_PARSE_FIELD
+    }
+    
 
 }

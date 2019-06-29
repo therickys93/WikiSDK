@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		9C11712D21E288FE0040910C /* AIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C11712C21E288FE0040910C /* AIViewController.swift */; };
 		9C2A6A1621764CF90026DC27 /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A6A1521764CF90026DC27 /* LightTableViewCell.swift */; };
+		9C40558E22C751BE0049CD4F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C40558D22C751BE0049CD4F /* SettingsViewController.swift */; };
 		9C5B0F9021711FD900108145 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B0F8F21711FD900108145 /* Wiki.swift */; };
 		9C8F0CAF21FA336200ADA8BD /* MacroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F0CAE21FA336200ADA8BD /* MacroTableViewController.swift */; };
 		9C8F0CB121FA374900ADA8BD /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8F0CB021FA374900ADA8BD /* Macro.swift */; };
@@ -55,6 +56,7 @@
 		8990329F81FDE3A6E4B48677 /* Pods-WikiSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikiSDK_Tests/Pods-WikiSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9C11712C21E288FE0040910C /* AIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIViewController.swift; sourceTree = "<group>"; };
 		9C2A6A1521764CF90026DC27 /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
+		9C40558D22C751BE0049CD4F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9C5B0F8F21711FD900108145 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		9C8F0CAE21FA336200ADA8BD /* MacroTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroTableViewController.swift; sourceTree = "<group>"; };
 		9C8F0CB021FA374900ADA8BD /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				9C40558D22C751BE0049CD4F /* SettingsViewController.swift */,
 				9C8F0CB421FA47D200ADA8BD /* MacroTableViewCell.swift */,
 				9C8F0CB221FA430E00ADA8BD /* EditMacroViewController.swift */,
 				9C8F0CB021FA374900ADA8BD /* Macro.swift */,
@@ -260,6 +263,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -304,12 +308,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WikiSDK_Example/Pods-WikiSDK_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/WikiSDK/WikiSDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WikiSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +387,7 @@
 				9C11712D21E288FE0040910C /* AIViewController.swift in Sources */,
 				9C8F0CB121FA374900ADA8BD /* Macro.swift in Sources */,
 				9CC80AD12170F0CF0091354E /* Utils.swift in Sources */,
+				9C40558E22C751BE0049CD4F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

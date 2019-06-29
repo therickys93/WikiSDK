@@ -8,6 +8,7 @@
 
 import UIKit
 import WikiSDK
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         AppDelegate.house.led = Utils.readLeds(file: Wiki.Constants.DBFILE)
         Utils.writeToLog("application start")
+        
+        // parse config init
+        let parseconfig = ParseClientConfiguration { (parse) in
+            parse.applicationId = Wiki.Controllers.WikiController.DEFAULT_PARSE_APP_ID
+            parse.server = Wiki.Controllers.WikiController.DEFAULT_PARSE_URL
+        }
+        
+        Parse.initialize(with: parseconfig)
+        
         return true
     }
     
