@@ -88,7 +88,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func updateControllerEndpoint(_ sender: UISwitch) {
         if sender.isOn {
             // use Parse and change textfield
-            self.wikiControllerServerTextField.text = "Use Parse Server"
+            self.wikiControllerServerTextField.text = Utils.loadParseURL()
             self.wikiControllerServerTextField.isEnabled = false
         } else {
             // use wikicontroller and change textfield
