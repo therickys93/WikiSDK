@@ -20,9 +20,8 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var urlServerTextField: UITextField!
     @IBOutlet weak var userServerTextField: UITextField!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func delegateInit()
+    {
         self.appIDTextField.delegate = self
         self.urlTextField.delegate = self
         self.classNameTextField.delegate = self
@@ -32,9 +31,10 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         
         self.urlServerTextField.delegate = self
         self.userServerTextField.delegate = self
-
-        // Do any additional setup after loading the view.
-        self.title = Wiki.Controllers.Settings.TITLE
+    }
+    
+    private func initUI()
+    {
         self.appIDTextField.text = Utils.loadParseAppId()
         self.urlTextField.text = Utils.loadParseURL()
         self.classNameTextField.text = Utils.loadParseClassName()
@@ -44,6 +44,16 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         
         self.urlServerTextField.text = Utils.loadWikiServerURL()
         self.userServerTextField.text = Utils.loadWikiServerUser()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        self.title = Wiki.Controllers.Settings.TITLE
+        
+        delegateInit()
+        initUI()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
