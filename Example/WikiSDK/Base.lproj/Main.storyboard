@@ -396,7 +396,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Parse" id="xmg-u0-cwC">
+                            <tableViewSection headerTitle="Parse" footerTitle="Riavviare Wiki per applicare modifiche" id="xmg-u0-cwC">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PsG-mr-Wm9">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>

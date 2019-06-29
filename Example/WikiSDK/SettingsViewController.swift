@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var appIDTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
@@ -17,6 +17,10 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.appIDTextField.delegate = self
+        self.urlTextField.delegate = self
+        self.classNameTextField.delegate = self
+        self.fieldTextField.delegate = self
 
         // Do any additional setup after loading the view.
         self.title = Wiki.Controllers.Settings.TITLE
@@ -24,6 +28,23 @@ class SettingsViewController: UITableViewController {
         self.urlTextField.text = Utils.loadParseURL()
         self.classNameTextField.text = Utils.loadParseClassName()
         self.fieldTextField.text = Utils.loadParseField()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if appIDTextField == textField {
+            Utils.saveParseAppId(textField.text!)
+        }
+        if urlTextField == textField {
+            Utils.saveParseURL(textField.text!)
+        }
+        if classNameTextField == textField {
+            Utils.saveParseClassName(textField.text!)
+        }
+        if fieldTextField == textField {
+            Utils.saveParseField(textField.text!)
+        }
+        return true
     }
     
 }
